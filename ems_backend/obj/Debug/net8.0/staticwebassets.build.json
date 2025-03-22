@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "saKs7QR6gPVz10ePfSrA/fj3Aux6zimFOYI7pcDZ2Gg=",
+  "Source": "ems_backend",
+  "BasePath": "_content/ems_backend",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
