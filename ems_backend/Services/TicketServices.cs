@@ -39,8 +39,8 @@ namespace ems_backend.Services
                 Id = ticket.Id,
                 EventId = ticket.EventId,
                 EventName = eventItem.Name,
-                EventStart = eventItem.StartDate.ToString("yyyy-MM-dd HH:mm"),
-                EventEnd = eventItem.EndDate.ToString("yyyy-MM-dd HH:mm"),
+                EventStart = eventItem.StartDate,
+                EventEnd = eventItem.EndDate,
                 EventStatus = GetEventStatus(ticket),
                 UserId = user.Id,
                 UserFirstName = user.FirstName,
@@ -64,9 +64,10 @@ namespace ems_backend.Services
                     Id = t.Id,
                     EventId = t.EventId,
                     EventName = t.Event.Name,
-                    EventStart = t.Event.StartDate.ToString("yyyy-MM-dd HH:mm"),
-                    EventEnd = t.Event.EndDate.ToString("yyyy-MM-dd HH:mm"),
+                    EventStart = t.Event.StartDate,
+                    EventEnd = t.Event.EndDate,
                     EventStatus = GetEventStatus(t),
+                    EventLocation = t.Event.Location,
                     UserId = t.UserId,
                     UserFirstName = t.User.FirstName,
                     UserLastName = t.User.LastName,
@@ -89,9 +90,10 @@ namespace ems_backend.Services
                     Id = t.Id,
                     EventId = t.EventId,
                     EventName = t.Event.Name,
-                    EventStart = t.Event.StartDate.ToString("yyyy-MM-dd HH:mm"),
-                    EventEnd = t.Event.EndDate.ToString("yyyy-MM-dd HH:mm"),
+                    EventStart = t.Event.StartDate,
+                    EventEnd = t.Event.EndDate,
                     EventStatus = GetEventStatus(t),
+                    EventLocation = t.Event.Location,
                     UserId = t.UserId,
                     UserFirstName = t.User.FirstName,
                     UserLastName = t.User.LastName,
@@ -133,22 +135,79 @@ namespace ems_backend.Services
             return "Active";
         }
 
-    }
+        // Get ticket by ID
+        public async Task<TicketDTO?> GetTicketByIdAsync(Guid ticketId)
+        {
+            var ticket = await _context.Tickets
+                .Include(t => t.Event)
+                .Include(t => t.User)
+                .FirstOrDefaultAsync(t => t.Id == ticketId);
 
-    // DTO
-    public class TicketDTO
-    {
-        public Guid Id { get; set; }
-        public Guid EventId { get; set; }
-        public string EventName { get; set; }
-        public string EventStart { get; set; }
-        public string EventEnd { get; set; }
-        public string EventStatus { get; set; }
-        public Guid UserId { get; set; }
-        public string UserFirstName { get; set; }
-        public string UserLastName { get; set; }
-        public string UserEmail { get; set; }
-        public string UserPhone { get; set; }
-        public TicketStatus Status { get; set; }
+            if (ticket == null) return null;
+
+            return new TicketDTO
+            {
+                Id = ticket.Id,
+                EventId = ticket.EventId,
+                EventName = ticket.Event.Name,
+                EventStart = ticket.Event.StartDate,
+                EventEnd = ticket.Event.EndDate,
+                EventStatus = GetEventStatus(ticket),
+                EventLocation = ticket.Event.Location,
+                UserId = ticket.UserId,
+                UserFirstName = ticket.User.FirstName,
+                UserLastName = ticket.User.LastName,
+                UserEmail = ticket.User.Email,
+                UserPhone = ticket.User.Phone,
+                Status = ticket.Status
+            };
+
+        }
+
+        // Get a ticket by User ID and Event ID
+        public async Task<TicketDTO?> GetTicketByUserAndEventAsync(Guid userId, Guid eventId)
+        {
+            var ticket = await _context.Tickets
+                .Include(t => t.Event)
+                .Include(t => t.User)
+                .FirstOrDefaultAsync(t => t.UserId == userId && t.EventId == eventId);
+
+            if (ticket == null) return null;
+
+            return new TicketDTO
+            {
+                Id = ticket.Id,
+                EventId = ticket.EventId,
+                EventName = ticket.Event.Name,
+                EventStart = ticket.Event.StartDate,
+                EventEnd = ticket.Event.EndDate,
+                EventStatus = GetEventStatus(ticket),
+                EventLocation = ticket.Event.Location,
+                UserId = ticket.UserId,
+                UserFirstName = ticket.User.FirstName,
+                UserLastName = ticket.User.LastName,
+                UserEmail = ticket.User.Email,
+                UserPhone = ticket.User.Phone,
+                Status = ticket.Status
+            };
+        }
+
+        // DTO
+        public class TicketDTO
+        {
+            public Guid Id { get; set; }
+            public Guid EventId { get; set; }
+            public string EventName { get; set; }
+            public DateTime EventStart { get; set; }
+            public DateTime EventEnd { get; set; }
+            public string EventStatus { get; set; }
+            public string EventLocation { get; set; }
+            public Guid UserId { get; set; }
+            public string UserFirstName { get; set; }
+            public string UserLastName { get; set; }
+            public string UserEmail { get; set; }
+            public string UserPhone { get; set; }
+            public TicketStatus Status { get; set; }
+        }
     }
 }

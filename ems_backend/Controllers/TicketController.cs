@@ -29,6 +29,15 @@ namespace ems_backend.Controllers
             return Ok(tickets);
         }
 
+        // Get ticket by User ID and Event ID
+        [HttpGet("user/{userId}/event/{eventId}")]
+        public async Task<IActionResult> GetTicketByUserAndEvent(Guid userId, Guid eventId)
+        {
+            var ticket = await _ticketService.GetTicketByUserAndEventAsync(userId, eventId);
+            if (ticket == null) return NotFound("Ticket not found.");
+            return Ok(ticket);
+        }
+
         [HttpPost("book/{userId}/{eventId}")]
         public async Task<IActionResult> BookTicket(Guid userId, Guid eventId)
         {
@@ -43,6 +52,14 @@ namespace ems_backend.Controllers
             var success = await _ticketService.RedeemTicketAsync(ticketId);
             if (!success) return BadRequest("Invalid ticket or already redeemed.");
             return Ok("Ticket redeemed.");
+        }
+
+        [HttpGet("{ticketId}")]
+        public async Task<IActionResult> GetTicketById(Guid ticketId)
+        {
+            var ticket = await _ticketService.GetTicketByIdAsync(ticketId);
+            if (ticket == null) return NotFound("Ticket not found.");
+            return Ok(ticket);
         }
     }
 

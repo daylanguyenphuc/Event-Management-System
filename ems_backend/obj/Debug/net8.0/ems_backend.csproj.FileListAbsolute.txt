@@ -170,3 +170,4 @@ D:\Code\Event-Management-System\ems_backend\obj\Debug\net8.0\ems_backend.pdb
 D:\Code\Event-Management-System\ems_backend\obj\Debug\net8.0\ems_backend.genruntimeconfig.cache
 D:\Code\Event-Management-System\ems_backend\obj\Debug\net8.0\ref\ems_backend.dll
 D:\Code\Event-Management-System\ems_backend\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+D:\Code\Event-Management-System\ems_backend\obj\Debug\net8.0\ems_backend.sourcelink.json

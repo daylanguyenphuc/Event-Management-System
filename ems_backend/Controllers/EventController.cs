@@ -26,11 +26,13 @@ namespace ems_backend.Controllers
         public async Task<IActionResult> GetEventsFilter(
             [FromQuery] decimal? minPrice,
             [FromQuery] decimal? maxPrice,
-            [FromQuery] Guid? ownerId,
-            [FromQuery] string? location,
-            [FromQuery] Guid? categoryId)
+            [FromQuery] DateTime? StartDate,
+            [FromQuery] DateTime? EndDate,
+            [FromQuery] bool? AvailableOnly,
+            [FromQuery] Guid? categoryId,
+            [FromQuery] string? Name)
         {
-            var events = await _eventService.GetEventsFilterAsync(minPrice, maxPrice, ownerId, location, categoryId);
+            var events = await _eventService.GetEventsFilterAsync(minPrice, maxPrice, StartDate, EndDate, AvailableOnly, categoryId, Name);
             return Ok(events);
         }
 
@@ -56,6 +58,30 @@ namespace ems_backend.Controllers
             var result = await _eventService.CancelEventAsync(id);
             if (!result) return NotFound("Event not found.");
             return Ok("Event canceled.");
+        }
+
+        [HttpGet("owner/{ownerId}")]
+        public async Task<IActionResult> GetEventsByOwnerId(Guid ownerId)
+        {
+            var events = await _eventService.GetEventsByOwnerIdAsync(ownerId);
+            if (events == null || events.Count == 0)
+            {
+                return NotFound(new { message = "No events found for this owner." });
+            }
+            return Ok(events);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateEvent(Guid id, [FromBody] EventRequest updatedEvent)
+        {
+            var updatedEventDTO = await _eventService.UpdateEventAsync(id, updatedEvent);
+
+            if (updatedEventDTO == null)
+            {
+                return NotFound($"Event with id {id} not found.");
+            }
+
+            return Ok(updatedEventDTO);  // Return the updated event details as a DTO
         }
     }
 }

@@ -1,10 +1,12 @@
 <template>
   <v-app>
-    <v-container>
-      <router-view /> <!-- This is where pages will load -->
-    </v-container>
+    <NavBar />
+    <v-main>
+      <router-view/>
+    </v-main>
   </v-app>
 </template>
 
 <script setup>
+  import NavBar from "@/components/NavBar.vue";
 </script>

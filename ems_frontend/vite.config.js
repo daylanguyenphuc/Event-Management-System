@@ -13,7 +13,10 @@ export default defineConfig({
       autoImport: true,
     }),
   ],
-  define: { 'process.env': {} },
+  define: { 
+    'process.env': {},
+    __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: false,
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),

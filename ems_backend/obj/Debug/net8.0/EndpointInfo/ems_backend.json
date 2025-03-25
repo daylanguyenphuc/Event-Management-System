@@ -162,18 +162,26 @@
             }
           },
           {
-            "name": "ownerId",
+            "name": "StartDate",
             "in": "query",
             "schema": {
               "type": "string",
-              "format": "uuid"
+              "format": "date-time"
             }
           },
           {
-            "name": "location",
+            "name": "EndDate",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "AvailableOnly",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
             }
           },
           {
@@ -182,6 +190,13 @@
             "schema": {
               "type": "string",
               "format": "uuid"
+            }
+          },
+          {
+            "name": "Name",
+            "in": "query",
+            "schema": {
+              "type": "string"
             }
           }
         ],
@@ -213,6 +228,46 @@
             "description": "OK"
           }
         }
+      },
+      "put": {
+        "tags": [
+          "Event"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EventRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EventRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EventRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       }
     },
     "/api/events/cancel/{id}": {
@@ -223,6 +278,29 @@
         "parameters": [
           {
             "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/events/owner/{ownerId}": {
+      "get": {
+        "tags": [
+          "Event"
+        ],
+        "parameters": [
+          {
+            "name": "ownerId",
             "in": "path",
             "required": true,
             "schema": {
@@ -396,6 +474,38 @@
         }
       }
     },
+    "/api/tickets/user/{userId}/event/{eventId}": {
+      "get": {
+        "tags": [
+          "Ticket"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "eventId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/tickets/book/{userId}/{eventId}": {
       "post": {
         "tags": [
@@ -430,6 +540,29 @@
     },
     "/api/tickets/redeem/{ticketId}": {
       "post": {
+        "tags": [
+          "Ticket"
+        ],
+        "parameters": [
+          {
+            "name": "ticketId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/tickets/{ticketId}": {
+      "get": {
         "tags": [
           "Ticket"
         ],

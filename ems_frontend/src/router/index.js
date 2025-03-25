@@ -1,12 +1,26 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import Login from "@/views/Login.vue";
-import Signup from "@/views/Signup.vue";
-// import EventList from "@/views/EventList.vue";
+import Register from "@/views/Register.vue";
+import Dashboard from "@/views/Dashboard.vue";
+import Events from "@/views/Events.vue";
+import EventDetail from "@/views/EventDetail.vue";
+import MyEvents from "@/views/MyEvents.vue";
+import EventManagement from "@/views/EventManagement.vue";
+import MyTickets from "@/views/MyTickets.vue";
+import MyTicketsDetail from "@/views/MyTicketsDetail.vue";
+import EditProfile from "@/views/EditProfile.vue";
 
 const routes = [
-//   { path: "/", component: EventList },
   { path: "/login", component: Login },
-  { path: "/signup", component: Signup },
+  { path: "/register", component: Register },
+  { path: "/dashboard", component: Dashboard },
+  { path: "/events", component: Events },
+  { path: "/events/:id", component: EventDetail, props: true },
+  { path: "/myevents", component: MyEvents },
+  { path: "/myevents/:id", component: EventManagement, props: true },
+  { path: "/mytickets", component: MyTickets },
+  { path: "/ticket/:id", component: MyTicketsDetail, props: true },
+  { path: "/editprofile", component: EditProfile }
 ];
 
 const router = createRouter({
