@@ -54,12 +54,17 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
+import { useStore } from "vuex";
 import apiClient from "@/services/api";
 
 // State
 const activeTab = ref("profile");
 const loading = ref(false);
+
+//Curent User
+const store = useStore();
+const user = computed(() => store.getters.user);
 
 // Profile Data
 const profile = ref({
@@ -97,10 +102,7 @@ const rules = {
 // Fetch User Profile
 const fetchProfile = async () => {
     try {
-        const user = JSON.parse(localStorage.getItem("user"));
-        if (!user) throw new Error("User not found");
-
-        const response = await apiClient.get(`/users/${user.id}`);
+        const response = await apiClient.get(`/users/${user.value.id}`);
 
         // Convert DOB format "2004-03-14T00:00:00" -> "2004-03-14"
         response.data.dob = response.data.dob.split("T")[0];

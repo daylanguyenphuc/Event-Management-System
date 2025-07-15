@@ -25,7 +25,7 @@
                         </template>
                     </v-data-table>
 
-                    <v-alert v-if="events.length === 0" type="info" class="mt-3">You have not created any events.</v-alert>
+                    <CustomAlert v-if="events.length === 0" customText="You have not created any events. Why not create one?"/>
                 </v-window-item>
 
                 <!-- Create New Event Tab -->
@@ -37,15 +37,14 @@
                         <v-text-field v-model="newEvent.startDate" label="Start time" type="datetime-local" required></v-text-field>
                         <v-text-field v-model="newEvent.endDate" label="End time" type="datetime-local" required></v-text-field>
                         <v-select
-                            v-model="newEvent.categoryId"
                             :items="categories"
-                            item-value="id"
-                            item-text="name"
                             label="Category"
+                            v-model="newEvent.categoryId"
+                            item-title="name"
+                            item-value="id"
                             required
                         >
                         </v-select>
-
                         <v-text-field 
                             v-model="newEvent.ticketPrice" 
                             label="Ticket Price" 
@@ -63,9 +62,15 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
+import { useStore } from "vuex";
 import { useRouter } from "vue-router"; // Add this line
 import apiClient from "@/services/api";
+import CustomAlert from "@/components/CustomAlert.vue"; 
+
+//Curent User
+const store = useStore();
+const user = computed(() => store.getters.user);
 
 const tab = ref("my-events");
 const events = ref([]);
@@ -77,7 +82,7 @@ const newEvent = ref({
     endDate: null,
     ticketPrice: null,
     ticketsLeft: null,
-    ownerId: localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")).id : null,
+    ownerId: user ? user.value.id : null,
     categoryId: null, 
 });
 
@@ -94,10 +99,7 @@ const headers = [
 // Fetch user's events
 const fetchEvents = async () => {
     try {
-        const user = JSON.parse(localStorage.getItem("user"));
-        if (!user) throw new Error("User not found");
-
-        const response = await apiClient.get(`/events/owner/${user.id}`);
+        const response = await apiClient.get(`/events/owner/${user.value.id}`);
         events.value = response.data;
     } catch (error) {
         console.error("Error fetching events:", error);
@@ -165,10 +167,7 @@ const fetchCategories = async () => {
 // Create a new event
 const createEvent = async () => {
     try {
-        const user = JSON.parse(localStorage.getItem("user"));
-        if (!user) throw new Error("User not found");
-
-        const eventData = { ...newEvent.value, ownerId: user.id };
+        const eventData = { ...newEvent.value, ownerId: user.value.id };
         await apiClient.post("/events", eventData);
 
         // Refresh event list
@@ -176,23 +175,6 @@ const createEvent = async () => {
         tab.value = "my-events";
     } catch (error) {
         console.error("Error creating event:", error);
-    }
-};
-
-// Edit an event (redirect to edit page)
-const editEvent = (eventId) => {
-    window.alert("Redirect to event edit page: " + eventId);
-};
-
-// Cancel an event
-const cancelEvent = async (eventId) => {
-    if (!confirm("Are you sure you want to cancel this event?")) return;
-
-    try {
-        await apiClient.put(`/events/${eventId}/cancel`);
-        fetchEvents(); // Refresh event list
-    } catch (error) {
-        console.error("Error canceling event:", error);
     }
 };
 

@@ -4,10 +4,10 @@
             Event Management System
         </v-toolbar-title>
 
-        <v-spacer></v-spacer>
+        <!-- <v-spacer class="d-md-none"></v-spacer> -->
 
-        <!-- Nếu đã đăng nhập, hiển thị menu điều hướng -->
-        <div v-if="isLoggedIn">
+        <!-- Menu cho màn hình lớn -->
+        <div class="d-none d-md-flex align-center" v-if="user">
             <v-btn to="/events" text>Events</v-btn>
             <v-btn to="/myevents" text>My Events</v-btn>
             <v-btn to="/mytickets" text>My Tickets</v-btn>
@@ -30,53 +30,49 @@
             </v-menu>
         </div>
 
-        <!-- Nếu chưa đăng nhập, hiển thị Login & Register -->
-        <div v-else>
+        <div class="d-none d-md-flex" v-else>
             <v-btn to="/login" text>Login</v-btn>
             <v-btn to="/register" text>Register</v-btn>
         </div>
-        
+
+        <!-- Menu -->
+        <v-app-bar-nav-icon class="d-md-none" @click="drawer = !drawer"></v-app-bar-nav-icon>
     </v-app-bar>
+
+    <!-- Navigation Drawer -->
+    <v-navigation-drawer v-model="drawer" app temporary>
+        <v-list v-if="user">
+            <v-list-item to="/events">Events</v-list-item>
+            <v-list-item to="/myevents">My Events</v-list-item>
+            <v-list-item to="/mytickets">My Tickets</v-list-item>
+            <v-list-item @click="editProfile">Edit Profile</v-list-item>
+            <v-list-item @click="logout">Logout</v-list-item>
+        </v-list>
+        <v-list v-else>
+            <v-list-item to="/login">Login</v-list-item>
+            <v-list-item to="/register">Register</v-list-item>
+        </v-list>
+    </v-navigation-drawer>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, computed, watchEffect } from "vue";
+import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 
+const store = useStore();
 const router = useRouter();
-const isLoggedIn = ref(false);
-const user = ref({});
+const user = computed(() => store.state.user);
+const drawer = ref(false);
 const defaultAvatar = "https://cdn-icons-png.flaticon.com/512/149/149071.png";
 
-const updateAuthState = () => {
-    const userData = localStorage.getItem("user");
-    isLoggedIn.value = !!userData;
-    user.value = userData ? JSON.parse(userData) : {};
-};
-
-// Lắng nghe sự kiện đăng nhập
-onMounted(() => {
-    updateAuthState();
-    window.addEventListener("auth-changed", updateAuthState);
-});
-
-// Hủy lắng nghe khi component bị hủy
-onUnmounted(() => {
-    window.removeEventListener("auth-changed", updateAuthState);
-});
-
 const logout = () => {
-    localStorage.removeItem("user");
-    updateAuthState();  // Cập nhật lại trạng thái
+    store.commit("setUser", null);
     router.push("/login");
 };
 
 const goToHome = () => {
-    router.push(isLoggedIn.value ? "/dashboard" : "/");
-};
-
-const goToProfile = () => {
-    router.push("/profile");
+    router.push(user.value ? "/dashboard" : "/");
 };
 
 const editProfile = () => {

@@ -1,30 +1,31 @@
 <template>
     <v-container>
-        <h1 class="text-h1 text-center pa-5">All Events</h1>
+        <h1 class="text-h4 text-md-h3 text-lg-h2 text-xl-h1 pa-5">All Events</h1>
     </v-container>  
 
     <v-container>
         <v-form>
             <v-row>
-                <v-col cols="8" md="8">
-                    <v-text-field label="Search for events" v-model="filters.name"></v-text-field>
+                <v-col cols="12" md="8" lg="8">
+                    <v-text-field label="Search for events" v-model="filters.name" clearable></v-text-field>
                 </v-col>
-                <v-col cols="4" md="4">
+                <v-col cols="12" md="4" lg="4">
                     <v-select 
                         :items="categories" 
                         label="Category" 
                         v-model="filters.category" 
                         item-title="name" 
                         item-value="id"
+                        clearable
                     ></v-select>
                 </v-col>
-                <v-col cols="6" md="3">
-                    <v-text-field v-model="filters.startDate" label="Start time" type="datetime-local"></v-text-field>
+                <v-col cols="6" md="6" lg="3">
+                    <v-text-field v-model="filters.startDate" label="Start time" type="datetime-local" clearable></v-text-field>
                 </v-col>
-                <v-col cols="6" md="3">
-                    <v-text-field v-model="filters.endDate" label="End time" type="datetime-local"></v-text-field>
+                <v-col cols="6" md="6" lg="3">
+                    <v-text-field v-model="filters.endDate" label="End time" type="datetime-local" clearable></v-text-field>
                 </v-col>
-                <v-col cols="8" md="3">
+                <v-col cols="12" md="6" lg="3">
                     <v-range-slider
                         v-model="filters.ticketPrice"
                         :min="0"
@@ -35,7 +36,7 @@
                         color="primary"
                     ></v-range-slider>
                 </v-col>
-                <v-col cols="4" md="3">
+                <v-col cols="12" md="6" lg="3">
                     <v-checkbox
                         v-model="filters.AvailableOnly"
                         label="Show Available Events only"
@@ -55,8 +56,8 @@
                     
                     <v-card-text>
                         <p><strong>Location:</strong> {{ event.location }}</p>
-                        <p><strong>Start:</strong> {{ event.startDate }}</p>
-                        <p><strong>End:</strong> {{ event.endDate }}</p>
+                        <p><strong>Start:</strong> {{ formatDate(event.startDate) }}</p>
+                        <p><strong>End:</strong> {{ formatDate(event.endDate) }}</p>
                         <p><strong>Price:</strong> {{ event.ticketPrice }} VND</p>
                         <p><strong>Tickets Left:</strong> {{ event.ticketsLeft }}</p>
                     </v-card-text>
@@ -70,7 +71,7 @@
 
         <v-row v-else>
             <v-col cols="12" class="text-center">
-                <NoEvents/>
+                <CustomAlert customText="No events available!"/>
             </v-col>
         </v-row>
 
@@ -86,7 +87,7 @@
 <script setup>
     import { ref, watch, onMounted, computed } from "vue";
     import apiClient from "@/services/api";
-    import NoEvents from "@/components/NoEvents.vue";
+    import CustomAlert from "@/components/CustomAlert.vue";
 
     // Categories
     const categories = ref([]);
@@ -104,7 +105,7 @@
 
     // Pagination
     const currentPage = ref(1);
-    const itemsPerPage = 6;
+    const itemsPerPage = 9;
 
     // Fetch Events
     const fetchEvents = async () => {
@@ -161,6 +162,11 @@
         currentPage.value = 1;
         fetchEvents();
     }, { deep: true });
+
+    // Format date
+    const formatDate = (dateString) => {
+        return new Date(dateString).toLocaleString();
+    };
 
     // Fetch data khi component mounted
     onMounted(fetchEvents);

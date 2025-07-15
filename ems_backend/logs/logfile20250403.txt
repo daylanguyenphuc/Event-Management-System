@@ -1,0 +1,1185 @@
+2025-04-03 23:01:51.971 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/swagger/index.html - null null
+2025-04-03 23:01:52.073 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-03 23:01:52.092 +07:00 [INF] Hosting environment: Development
+2025-04-03 23:01:52.092 +07:00 [INF] Content root path: D:\Code\Event-Management-System\ems_backend
+2025-04-03 23:01:52.324 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2025-04-03 23:01:52.324 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-03 23:01:52.324 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/swagger/index.html - 200 null text/html;charset=utf-8 362.0135ms
+2025-04-03 23:01:52.332 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 13774 application/javascript; charset=utf-8 4.1562ms
+2025-04-03 23:01:52.388 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 64.8481ms
+2025-04-03 23:01:52.468 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/swagger/v1/swagger.json - null null
+2025-04-03 23:01:52.488 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 20.3345ms
+2025-04-03 23:05:54.597 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/swagger/index.html - null null
+2025-04-03 23:05:54.685 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-03 23:05:54.698 +07:00 [INF] Hosting environment: Development
+2025-04-03 23:05:54.698 +07:00 [INF] Content root path: D:\Code\Event-Management-System\ems_backend
+2025-04-03 23:05:54.840 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2025-04-03 23:05:54.840 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-03 23:05:54.841 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/swagger/index.html - 200 null text/html;charset=utf-8 253.3414ms
+2025-04-03 23:05:54.849 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 13774 application/javascript; charset=utf-8 4.4577ms
+2025-04-03 23:05:54.883 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 43.7729ms
+2025-04-03 23:05:54.941 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/swagger/v1/swagger.json - null null
+2025-04-03 23:05:54.955 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 14.0089ms
+2025-04-03 23:06:07.780 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/api/discussions/by-events/9de160cf-e98c-4ec5-8c92-5d8518b14921 - null null
+2025-04-03 23:06:07.782 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/api/events/9de160cf-e98c-4ec5-8c92-5d8518b14921 - null null
+2025-04-03 23:06:07.804 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:06:07.804 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:06:07.822 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.DiscussionController.GetDiscussionsByEventId (ems_backend)'
+2025-04-03 23:06:07.822 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.EventController.GetEvent (ems_backend)'
+2025-04-03 23:06:07.947 +07:00 [INF] Route matched with {action = "GetDiscussionsByEventId", controller = "Discussion"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetDiscussionsByEventId(System.Guid) on controller ems_backend.Controllers.DiscussionController (ems_backend).
+2025-04-03 23:06:07.947 +07:00 [INF] Route matched with {action = "GetEvent", controller = "Event"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetEvent(System.Guid) on controller ems_backend.Controllers.EventController (ems_backend).
+2025-04-03 23:06:09.897 +07:00 [INF] Executed DbCommand (61ms) [Parameters=[@__eventId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [d].[Id], [d].[CreatedAt], [d].[Description], [d].[EventId], [d].[Photos], [d].[Title], [d].[UpdatedAt], [d].[UserId]
+FROM [Discussions] AS [d]
+WHERE [d].[EventId] = @__eventId_0
+ORDER BY [d].[CreatedAt]
+2025-04-03 23:06:09.897 +07:00 [INF] Executed DbCommand (61ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[Name], [e].[Description], [e].[StartDate], [e].[EndDate], [e].[TicketPrice], [e].[TicketsLeft], [e].[OwnerId], [u].[FirstName] AS [OwnerFirstName], [u].[LastName] AS [OwnerLastName], [e].[Location], [e].[CategoryId], [e0].[Name] AS [CategoryName], (
+    SELECT COUNT(*)
+    FROM [Tickets] AS [t]
+    WHERE [e].[Id] = [t].[EventId]) AS [TicketCount], [e].[IsCanceled], CASE
+    WHEN [e].[IsCanceled] = CAST(0 AS bit) AND [e].[EndDate] > GETUTCDATE() AND [e].[TicketsLeft] > 0 THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END AS [RegisterAvaliable]
+FROM [Events] AS [e]
+INNER JOIN [Users] AS [u] ON [e].[OwnerId] = [u].[Id]
+INNER JOIN [EventCategories] AS [e0] ON [e].[CategoryId] = [e0].[Id]
+WHERE [e].[Id] = @__id_0
+2025-04-03 23:06:09.939 +07:00 [INF] Executing OkObjectResult, writing value of type 'ems_backend.Services.EventDTO'.
+2025-04-03 23:06:09.939 +07:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2025-04-03 23:06:09.947 +07:00 [INF] Executed action ems_backend.Controllers.DiscussionController.GetDiscussionsByEventId (ems_backend) in 1995.2513ms
+2025-04-03 23:06:09.947 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.DiscussionController.GetDiscussionsByEventId (ems_backend)'
+2025-04-03 23:06:09.956 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/api/discussions/by-events/9de160cf-e98c-4ec5-8c92-5d8518b14921 - 404 null application/json; charset=utf-8 2176.0005ms
+2025-04-03 23:06:09.967 +07:00 [INF] Executed action ems_backend.Controllers.EventController.GetEvent (ems_backend) in 2018.5221ms
+2025-04-03 23:06:09.967 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.EventController.GetEvent (ems_backend)'
+2025-04-03 23:06:09.968 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/api/events/9de160cf-e98c-4ec5-8c92-5d8518b14921 - 200 null application/json; charset=utf-8 2186.2407ms
+2025-04-03 23:06:09.972 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/api/tickets/user/8f6803ce-151d-4770-a0d6-b3d8b9fd61df/event/9de160cf-e98c-4ec5-8c92-5d8518b14921 - null null
+2025-04-03 23:06:09.976 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:06:09.977 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.TicketController.GetTicketByUserAndEvent (ems_backend)'
+2025-04-03 23:06:09.984 +07:00 [INF] Route matched with {action = "GetTicketByUserAndEvent", controller = "Ticket"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetTicketByUserAndEvent(System.Guid, System.Guid) on controller ems_backend.Controllers.TicketController (ems_backend).
+2025-04-03 23:06:10.139 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[@__userId_0='?' (DbType = Guid), @__eventId_1='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[EventId], [t].[Status], [t].[UserId], [e].[Id], [e].[CategoryId], [e].[Description], [e].[EndDate], [e].[IsCanceled], [e].[Location], [e].[Name], [e].[OwnerId], [e].[StartDate], [e].[TicketPrice], [e].[TicketsLeft], [u].[Id], [u].[Dob], [u].[Email], [u].[FirstName], [u].[LastName], [u].[Password], [u].[Phone]
+FROM [Tickets] AS [t]
+INNER JOIN [Events] AS [e] ON [t].[EventId] = [e].[Id]
+INNER JOIN [Users] AS [u] ON [t].[UserId] = [u].[Id]
+WHERE [t].[UserId] = @__userId_0 AND [t].[EventId] = @__eventId_1
+2025-04-03 23:06:10.140 +07:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2025-04-03 23:06:10.141 +07:00 [INF] Executed action ems_backend.Controllers.TicketController.GetTicketByUserAndEvent (ems_backend) in 156.5856ms
+2025-04-03 23:06:10.141 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.TicketController.GetTicketByUserAndEvent (ems_backend)'
+2025-04-03 23:06:10.141 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/api/tickets/user/8f6803ce-151d-4770-a0d6-b3d8b9fd61df/event/9de160cf-e98c-4ec5-8c92-5d8518b14921 - 404 null application/json; charset=utf-8 168.9308ms
+2025-04-03 23:06:17.274 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/api/discussions/by-events/9de160cf-e98c-4ec5-8c92-5d8518b14921 - null null
+2025-04-03 23:06:17.274 +07:00 [INF] Request starting HTTP/2 POST https://localhost:44338/api/discussions - multipart/form-data; boundary=----WebKitFormBoundaryBsPIJOCE7bIiAfkd 176649
+2025-04-03 23:06:17.275 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:06:17.275 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:06:17.276 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.DiscussionController.CreateDiscussion (ems_backend)'
+2025-04-03 23:06:17.276 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.DiscussionController.GetDiscussionsByEventId (ems_backend)'
+2025-04-03 23:06:17.276 +07:00 [INF] Route matched with {action = "GetDiscussionsByEventId", controller = "Discussion"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetDiscussionsByEventId(System.Guid) on controller ems_backend.Controllers.DiscussionController (ems_backend).
+2025-04-03 23:06:17.283 +07:00 [INF] Route matched with {action = "CreateDiscussion", controller = "Discussion"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateDiscussion(NewDiscussionDto) on controller ems_backend.Controllers.DiscussionController (ems_backend).
+2025-04-03 23:06:17.286 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__eventId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [d].[Id], [d].[CreatedAt], [d].[Description], [d].[EventId], [d].[Photos], [d].[Title], [d].[UpdatedAt], [d].[UserId]
+FROM [Discussions] AS [d]
+WHERE [d].[EventId] = @__eventId_0
+ORDER BY [d].[CreatedAt]
+2025-04-03 23:06:17.298 +07:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2025-04-03 23:06:17.299 +07:00 [INF] Executed action ems_backend.Controllers.DiscussionController.GetDiscussionsByEventId (ems_backend) in 23.1742ms
+2025-04-03 23:06:17.300 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.DiscussionController.GetDiscussionsByEventId (ems_backend)'
+2025-04-03 23:06:17.301 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/api/discussions/by-events/9de160cf-e98c-4ec5-8c92-5d8518b14921 - 404 null application/json; charset=utf-8 26.2832ms
+2025-04-03 23:06:17.378 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[CategoryId], [e].[Description], [e].[EndDate], [e].[IsCanceled], [e].[Location], [e].[Name], [e].[OwnerId], [e].[StartDate], [e].[TicketPrice], [e].[TicketsLeft]
+FROM [Events] AS [e]
+WHERE [e].[Id] = @__p_0
+2025-04-03 23:06:17.469 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Dob], [u].[Email], [u].[FirstName], [u].[LastName], [u].[Password], [u].[Phone]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2025-04-03 23:06:25.112 +07:00 [ERR] Failed executing DbCommand (9ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (Size = 4000), @p3='?' (DbType = Guid), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (DbType = DateTime2), @p7='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Discussions] ([Id], [CreatedAt], [Description], [EventId], [Photos], [Title], [UpdatedAt], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2025-04-03 23:06:25.138 +07:00 [ERR] An exception occurred in the database while saving changes for context type 'ems_backend.Data.ApplicationDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_Discussions_Events_UserId". The conflict occurred in database "ems_database", table "dbo.Events", column 'Id'.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:a892c111-6c46-4b9d-88a7-0b28382c7908
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_Discussions_Events_UserId". The conflict occurred in database "ems_database", table "dbo.Events", column 'Id'.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:a892c111-6c46-4b9d-88a7-0b28382c7908
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2025-04-03 23:06:25.185 +07:00 [ERR] Error creating discussion: An error occurred while saving the entity changes. See the inner exception for details.
+2025-04-03 23:06:25.240 +07:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType1`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-03 23:06:25.243 +07:00 [INF] Executed action ems_backend.Controllers.DiscussionController.CreateDiscussion (ems_backend) in 7960.3186ms
+2025-04-03 23:06:25.243 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.DiscussionController.CreateDiscussion (ems_backend)'
+2025-04-03 23:06:25.245 +07:00 [INF] Request finished HTTP/2 POST https://localhost:44338/api/discussions - 400 null application/json; charset=utf-8 7970.5414ms
+2025-04-03 23:19:47.860 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/swagger/index.html - null null
+2025-04-03 23:19:47.952 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-03 23:19:47.964 +07:00 [INF] Hosting environment: Development
+2025-04-03 23:19:47.965 +07:00 [INF] Content root path: D:\Code\Event-Management-System\ems_backend
+2025-04-03 23:19:48.128 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2025-04-03 23:19:48.128 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-03 23:19:48.129 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/swagger/index.html - 200 null text/html;charset=utf-8 281.9148ms
+2025-04-03 23:19:48.133 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 13774 application/javascript; charset=utf-8 5.4018ms
+2025-04-03 23:19:48.173 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 46.5195ms
+2025-04-03 23:19:48.235 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/swagger/v1/swagger.json - null null
+2025-04-03 23:19:48.251 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 14.5642ms
+2025-04-03 23:19:52.442 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/api/discussions/by-events/9de160cf-e98c-4ec5-8c92-5d8518b14921 - null null
+2025-04-03 23:19:52.445 +07:00 [INF] Request starting HTTP/2 POST https://localhost:44338/api/discussions - multipart/form-data; boundary=----WebKitFormBoundaryAs9Ac1RC0BE8dysL 493
+2025-04-03 23:19:52.452 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:19:52.452 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:19:52.459 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.DiscussionController.GetDiscussionsByEventId (ems_backend)'
+2025-04-03 23:19:52.459 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.DiscussionController.CreateDiscussion (ems_backend)'
+2025-04-03 23:19:52.491 +07:00 [INF] Route matched with {action = "GetDiscussionsByEventId", controller = "Discussion"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetDiscussionsByEventId(System.Guid) on controller ems_backend.Controllers.DiscussionController (ems_backend).
+2025-04-03 23:19:52.491 +07:00 [INF] Route matched with {action = "CreateDiscussion", controller = "Discussion"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateDiscussion(NewDiscussionDto) on controller ems_backend.Controllers.DiscussionController (ems_backend).
+2025-04-03 23:19:52.651 +07:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-04-03 23:19:52.689 +07:00 [INF] Executed action ems_backend.Controllers.DiscussionController.CreateDiscussion (ems_backend) in 194.4776ms
+2025-04-03 23:19:52.689 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.DiscussionController.CreateDiscussion (ems_backend)'
+2025-04-03 23:19:52.691 +07:00 [INF] Request finished HTTP/2 POST https://localhost:44338/api/discussions - 400 null application/problem+json; charset=utf-8 246.2093ms
+2025-04-03 23:19:53.101 +07:00 [WRN] The foreign key property 'Discussion.UserId1' was created in shadow state because a conflicting property with the simple name 'UserId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2025-04-03 23:19:53.740 +07:00 [ERR] Failed executing DbCommand (45ms) [Parameters=[@__eventId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [d].[Id], [d].[CreatedAt], [d].[Description], [d].[EventId], [d].[Photos], [d].[Title], [d].[UpdatedAt], [d].[UserId], [d].[UserId1]
+FROM [Discussions] AS [d]
+WHERE [d].[EventId] = @__eventId_0
+ORDER BY [d].[CreatedAt]
+2025-04-03 23:19:53.777 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'ems_backend.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'UserId1'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:85169a1e-8f04-4e88-8f6c-322b3d0f838f
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'UserId1'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:85169a1e-8f04-4e88-8f6c-322b3d0f838f
+Error Number:207,State:1,Class:16
+2025-04-03 23:19:53.841 +07:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-04-03 23:19:53.842 +07:00 [INF] Executed action ems_backend.Controllers.DiscussionController.GetDiscussionsByEventId (ems_backend) in 1350.6208ms
+2025-04-03 23:19:53.842 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.DiscussionController.GetDiscussionsByEventId (ems_backend)'
+2025-04-03 23:19:53.847 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/api/discussions/by-events/9de160cf-e98c-4ec5-8c92-5d8518b14921 - 400 null application/json; charset=utf-8 1405.9375ms
+2025-04-03 23:21:56.857 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/swagger/index.html - null null
+2025-04-03 23:21:56.945 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-03 23:21:56.957 +07:00 [INF] Hosting environment: Development
+2025-04-03 23:21:56.957 +07:00 [INF] Content root path: D:\Code\Event-Management-System\ems_backend
+2025-04-03 23:21:57.118 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2025-04-03 23:21:57.118 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-03 23:21:57.119 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/swagger/index.html - 200 null text/html;charset=utf-8 274.4599ms
+2025-04-03 23:21:57.130 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 13774 application/javascript; charset=utf-8 8.4655ms
+2025-04-03 23:21:57.166 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 49.3287ms
+2025-04-03 23:21:57.225 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/swagger/v1/swagger.json - null null
+2025-04-03 23:21:57.241 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 16.119ms
+2025-04-03 23:22:09.108 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/api/categories - null null
+2025-04-03 23:22:09.117 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:22:09.127 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.EventCategoryController.GetAllCategories (ems_backend)'
+2025-04-03 23:22:09.177 +07:00 [INF] Route matched with {action = "GetAllCategories", controller = "EventCategory"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllCategories() on controller ems_backend.Controllers.EventCategoryController (ems_backend).
+2025-04-03 23:22:09.845 +07:00 [WRN] The foreign key property 'Discussion.UserId1' was created in shadow state because a conflicting property with the simple name 'UserId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2025-04-03 23:22:10.418 +07:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id], [e].[Name]
+FROM [EventCategories] AS [e]
+2025-04-03 23:22:10.451 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[ems_backend.Services.EventCategoryDTO, ems_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-03 23:22:10.462 +07:00 [INF] Executed action ems_backend.Controllers.EventCategoryController.GetAllCategories (ems_backend) in 1281.8411ms
+2025-04-03 23:22:10.462 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.EventCategoryController.GetAllCategories (ems_backend)'
+2025-04-03 23:22:10.468 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/api/events/filter?minPrice=0&maxPrice=1000000&AvailableOnly=false - null null
+2025-04-03 23:22:10.471 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/api/categories - 200 null application/json; charset=utf-8 1363.2388ms
+2025-04-03 23:22:10.471 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:22:10.471 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.EventController.GetEventsFilter (ems_backend)'
+2025-04-03 23:22:10.486 +07:00 [INF] Route matched with {action = "GetEventsFilter", controller = "Event"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetEventsFilter(System.Nullable`1[System.Decimal], System.Nullable`1[System.Decimal], System.Nullable`1[System.DateTime], System.Nullable`1[System.DateTime], System.Nullable`1[System.Boolean], System.Nullable`1[System.Guid], System.String) on controller ems_backend.Controllers.EventController (ems_backend).
+2025-04-03 23:22:10.638 +07:00 [INF] Executed DbCommand (26ms) [Parameters=[@__minPrice_Value_0='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @__maxPrice_Value_1='?' (Precision = 18) (Scale = 2) (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id], [e].[Name], [e].[Description], [e].[StartDate], [e].[EndDate], [e].[TicketPrice], [e].[TicketsLeft], [e].[OwnerId], [u].[FirstName] AS [OwnerFirstName], [u].[LastName] AS [OwnerLastName], [e].[Location], [e].[CategoryId], [e0].[Name] AS [CategoryName], (
+    SELECT COUNT(*)
+    FROM [Tickets] AS [t]
+    WHERE [e].[Id] = [t].[EventId]) AS [TicketCount], [e].[IsCanceled], CASE
+    WHEN [e].[IsCanceled] = CAST(0 AS bit) AND [e].[EndDate] > GETUTCDATE() AND [e].[TicketsLeft] > 0 THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END AS [RegisterAvaliable]
+FROM [Events] AS [e]
+INNER JOIN [Users] AS [u] ON [e].[OwnerId] = [u].[Id]
+INNER JOIN [EventCategories] AS [e0] ON [e].[CategoryId] = [e0].[Id]
+WHERE [e].[TicketPrice] >= @__minPrice_Value_0 AND [e].[TicketPrice] <= @__maxPrice_Value_1
+2025-04-03 23:22:10.642 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[ems_backend.Services.EventDTO, ems_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-03 23:22:10.652 +07:00 [INF] Executed action ems_backend.Controllers.EventController.GetEventsFilter (ems_backend) in 166.0785ms
+2025-04-03 23:22:10.652 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.EventController.GetEventsFilter (ems_backend)'
+2025-04-03 23:22:10.653 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/api/events/filter?minPrice=0&maxPrice=1000000&AvailableOnly=false - 200 null application/json; charset=utf-8 184.7294ms
+2025-04-03 23:22:12.005 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/api/discussions/by-events/9de160cf-e98c-4ec5-8c92-5d8518b14921 - null null
+2025-04-03 23:22:12.005 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/api/events/9de160cf-e98c-4ec5-8c92-5d8518b14921 - null null
+2025-04-03 23:22:12.006 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:22:12.006 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:22:12.006 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.EventController.GetEvent (ems_backend)'
+2025-04-03 23:22:12.006 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.DiscussionController.GetDiscussionsByEventId (ems_backend)'
+2025-04-03 23:22:12.012 +07:00 [INF] Route matched with {action = "GetDiscussionsByEventId", controller = "Discussion"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetDiscussionsByEventId(System.Guid) on controller ems_backend.Controllers.DiscussionController (ems_backend).
+2025-04-03 23:22:12.012 +07:00 [INF] Route matched with {action = "GetEvent", controller = "Event"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetEvent(System.Guid) on controller ems_backend.Controllers.EventController (ems_backend).
+2025-04-03 23:22:12.079 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[Name], [e].[Description], [e].[StartDate], [e].[EndDate], [e].[TicketPrice], [e].[TicketsLeft], [e].[OwnerId], [u].[FirstName] AS [OwnerFirstName], [u].[LastName] AS [OwnerLastName], [e].[Location], [e].[CategoryId], [e0].[Name] AS [CategoryName], (
+    SELECT COUNT(*)
+    FROM [Tickets] AS [t]
+    WHERE [e].[Id] = [t].[EventId]) AS [TicketCount], [e].[IsCanceled], CASE
+    WHEN [e].[IsCanceled] = CAST(0 AS bit) AND [e].[EndDate] > GETUTCDATE() AND [e].[TicketsLeft] > 0 THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END AS [RegisterAvaliable]
+FROM [Events] AS [e]
+INNER JOIN [Users] AS [u] ON [e].[OwnerId] = [u].[Id]
+INNER JOIN [EventCategories] AS [e0] ON [e].[CategoryId] = [e0].[Id]
+WHERE [e].[Id] = @__id_0
+2025-04-03 23:22:12.080 +07:00 [INF] Executing OkObjectResult, writing value of type 'ems_backend.Services.EventDTO'.
+2025-04-03 23:22:12.082 +07:00 [INF] Executed action ems_backend.Controllers.EventController.GetEvent (ems_backend) in 69.1033ms
+2025-04-03 23:22:12.082 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.EventController.GetEvent (ems_backend)'
+2025-04-03 23:22:12.083 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/api/events/9de160cf-e98c-4ec5-8c92-5d8518b14921 - 200 null application/json; charset=utf-8 77.5709ms
+2025-04-03 23:22:12.086 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/api/tickets/user/8f6803ce-151d-4770-a0d6-b3d8b9fd61df/event/9de160cf-e98c-4ec5-8c92-5d8518b14921 - null null
+2025-04-03 23:22:12.086 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:22:12.087 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.TicketController.GetTicketByUserAndEvent (ems_backend)'
+2025-04-03 23:22:12.090 +07:00 [INF] Route matched with {action = "GetTicketByUserAndEvent", controller = "Ticket"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetTicketByUserAndEvent(System.Guid, System.Guid) on controller ems_backend.Controllers.TicketController (ems_backend).
+2025-04-03 23:22:12.123 +07:00 [ERR] Failed executing DbCommand (8ms) [Parameters=[@__eventId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [d].[Id], [d].[CreatedAt], [d].[Description], [d].[EventId], [d].[Photos], [d].[Title], [d].[UpdatedAt], [d].[UserId], [d].[UserId1]
+FROM [Discussions] AS [d]
+WHERE [d].[EventId] = @__eventId_0
+2025-04-03 23:22:12.141 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (DbType = Guid), @__eventId_1='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[EventId], [t].[Status], [t].[UserId], [e].[Id], [e].[CategoryId], [e].[Description], [e].[EndDate], [e].[IsCanceled], [e].[Location], [e].[Name], [e].[OwnerId], [e].[StartDate], [e].[TicketPrice], [e].[TicketsLeft], [u].[Id], [u].[Dob], [u].[Email], [u].[FirstName], [u].[LastName], [u].[Password], [u].[Phone]
+FROM [Tickets] AS [t]
+INNER JOIN [Events] AS [e] ON [t].[EventId] = [e].[Id]
+INNER JOIN [Users] AS [u] ON [t].[UserId] = [u].[Id]
+WHERE [t].[UserId] = @__userId_0 AND [t].[EventId] = @__eventId_1
+2025-04-03 23:22:12.142 +07:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2025-04-03 23:22:12.143 +07:00 [INF] Executed action ems_backend.Controllers.TicketController.GetTicketByUserAndEvent (ems_backend) in 52.5771ms
+2025-04-03 23:22:12.143 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.TicketController.GetTicketByUserAndEvent (ems_backend)'
+2025-04-03 23:22:12.143 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/api/tickets/user/8f6803ce-151d-4770-a0d6-b3d8b9fd61df/event/9de160cf-e98c-4ec5-8c92-5d8518b14921 - 404 null application/json; charset=utf-8 57.745ms
+2025-04-03 23:22:12.150 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'ems_backend.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'UserId1'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:91999d91-59b4-4cf6-98a8-420117d4b873
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'UserId1'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:91999d91-59b4-4cf6-98a8-420117d4b873
+Error Number:207,State:1,Class:16
+2025-04-03 23:22:12.214 +07:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-04-03 23:22:12.215 +07:00 [INF] Executed action ems_backend.Controllers.DiscussionController.GetDiscussionsByEventId (ems_backend) in 202.1978ms
+2025-04-03 23:22:12.216 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.DiscussionController.GetDiscussionsByEventId (ems_backend)'
+2025-04-03 23:22:12.216 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/api/discussions/by-events/9de160cf-e98c-4ec5-8c92-5d8518b14921 - 400 null application/json; charset=utf-8 211.1189ms
+2025-04-03 23:22:20.491 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/api/discussions/by-events/9de160cf-e98c-4ec5-8c92-5d8518b14921 - null null
+2025-04-03 23:22:20.491 +07:00 [INF] Request starting HTTP/2 POST https://localhost:44338/api/discussions - multipart/form-data; boundary=----WebKitFormBoundary1ywRzhiA7KSVmmTQ 176654
+2025-04-03 23:22:20.492 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:22:20.492 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:22:20.492 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.DiscussionController.GetDiscussionsByEventId (ems_backend)'
+2025-04-03 23:22:20.492 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.DiscussionController.CreateDiscussion (ems_backend)'
+2025-04-03 23:22:20.492 +07:00 [INF] Route matched with {action = "GetDiscussionsByEventId", controller = "Discussion"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetDiscussionsByEventId(System.Guid) on controller ems_backend.Controllers.DiscussionController (ems_backend).
+2025-04-03 23:22:20.502 +07:00 [ERR] Failed executing DbCommand (6ms) [Parameters=[@__eventId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [d].[Id], [d].[CreatedAt], [d].[Description], [d].[EventId], [d].[Photos], [d].[Title], [d].[UpdatedAt], [d].[UserId], [d].[UserId1]
+FROM [Discussions] AS [d]
+WHERE [d].[EventId] = @__eventId_0
+2025-04-03 23:22:20.502 +07:00 [INF] Route matched with {action = "CreateDiscussion", controller = "Discussion"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateDiscussion(NewDiscussionDto) on controller ems_backend.Controllers.DiscussionController (ems_backend).
+2025-04-03 23:22:20.504 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'ems_backend.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'UserId1'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:91999d91-59b4-4cf6-98a8-420117d4b873
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'UserId1'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:91999d91-59b4-4cf6-98a8-420117d4b873
+Error Number:207,State:1,Class:16
+2025-04-03 23:22:20.556 +07:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-04-03 23:22:20.556 +07:00 [INF] Executed action ems_backend.Controllers.DiscussionController.GetDiscussionsByEventId (ems_backend) in 63.733ms
+2025-04-03 23:22:20.556 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.DiscussionController.GetDiscussionsByEventId (ems_backend)'
+2025-04-03 23:22:20.557 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/api/discussions/by-events/9de160cf-e98c-4ec5-8c92-5d8518b14921 - 400 null application/json; charset=utf-8 65.5982ms
+2025-04-03 23:22:20.612 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[CategoryId], [e].[Description], [e].[EndDate], [e].[IsCanceled], [e].[Location], [e].[Name], [e].[OwnerId], [e].[StartDate], [e].[TicketPrice], [e].[TicketsLeft]
+FROM [Events] AS [e]
+WHERE [e].[Id] = @__p_0
+2025-04-03 23:22:20.676 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Dob], [u].[Email], [u].[FirstName], [u].[LastName], [u].[Password], [u].[Phone]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2025-04-03 23:22:27.793 +07:00 [ERR] Failed executing DbCommand (3ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (Size = 4000), @p3='?' (DbType = Guid), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (DbType = DateTime2), @p7='?' (DbType = Guid), @p8='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Discussions] ([Id], [CreatedAt], [Description], [EventId], [Photos], [Title], [UpdatedAt], [UserId], [UserId1])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+2025-04-03 23:22:27.801 +07:00 [ERR] An exception occurred in the database while saving changes for context type 'ems_backend.Data.ApplicationDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'UserId1'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:91999d91-59b4-4cf6-98a8-420117d4b873
+Error Number:207,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'UserId1'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:91999d91-59b4-4cf6-98a8-420117d4b873
+Error Number:207,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2025-04-03 23:22:27.838 +07:00 [ERR] Error creating discussion: An error occurred while saving the entity changes. See the inner exception for details.
+2025-04-03 23:22:27.889 +07:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType1`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-03 23:22:27.892 +07:00 [INF] Executed action ems_backend.Controllers.DiscussionController.CreateDiscussion (ems_backend) in 7389.5418ms
+2025-04-03 23:22:27.892 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.DiscussionController.CreateDiscussion (ems_backend)'
+2025-04-03 23:22:27.893 +07:00 [INF] Request finished HTTP/2 POST https://localhost:44338/api/discussions - 400 null application/json; charset=utf-8 7402.5495ms
+2025-04-03 23:24:07.952 +07:00 [WRN] The foreign key property 'Discussion.UserId1' was created in shadow state because a conflicting property with the simple name 'UserId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2025-04-03 23:24:38.767 +07:00 [WRN] The foreign key property 'Discussion.UserId1' was created in shadow state because a conflicting property with the simple name 'UserId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2025-04-03 23:24:39.303 +07:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-04-03 23:24:39.321 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-04-03 23:24:39.336 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-04-03 23:26:46.536 +07:00 [WRN] The foreign key property 'Discussion.UserId1' was created in shadow state because a conflicting property with the simple name 'UserId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2025-04-03 23:26:58.589 +07:00 [WRN] The foreign key property 'Discussion.UserId1' was created in shadow state because a conflicting property with the simple name 'UserId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2025-04-03 23:26:59.150 +07:00 [INF] Executed DbCommand (197ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [ems_database];
+2025-04-03 23:26:59.204 +07:00 [INF] Executed DbCommand (51ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [ems_database] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2025-04-03 23:26:59.219 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-04-03 23:26:59.222 +07:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-04-03 23:26:59.235 +07:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result
+2025-04-03 23:26:59.283 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+2025-04-03 23:26:59.290 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-04-03 23:26:59.291 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-04-03 23:26:59.294 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-04-03 23:26:59.303 +07:00 [INF] Applying migration '20250403162646_dbinit'.
+2025-04-03 23:26:59.327 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [EventCategories] (
+    [Id] uniqueidentifier NOT NULL,
+    [Name] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_EventCategories] PRIMARY KEY ([Id])
+);
+2025-04-03 23:26:59.329 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Users] (
+    [Id] uniqueidentifier NOT NULL,
+    [FirstName] nvarchar(max) NOT NULL,
+    [LastName] nvarchar(max) NOT NULL,
+    [Email] nvarchar(max) NOT NULL,
+    [Phone] nvarchar(max) NOT NULL,
+    [Dob] datetime2 NOT NULL,
+    [Password] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Users] PRIMARY KEY ([Id])
+);
+2025-04-03 23:26:59.332 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Events] (
+    [Id] uniqueidentifier NOT NULL,
+    [Name] nvarchar(max) NOT NULL,
+    [Description] nvarchar(max) NOT NULL,
+    [StartDate] datetime2 NOT NULL,
+    [EndDate] datetime2 NOT NULL,
+    [TicketPrice] decimal(18,2) NOT NULL,
+    [TicketsLeft] int NOT NULL,
+    [OwnerId] uniqueidentifier NOT NULL,
+    [Location] nvarchar(max) NOT NULL,
+    [CategoryId] uniqueidentifier NOT NULL,
+    [IsCanceled] bit NOT NULL,
+    CONSTRAINT [PK_Events] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Events_EventCategories_CategoryId] FOREIGN KEY ([CategoryId]) REFERENCES [EventCategories] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_Events_Users_OwnerId] FOREIGN KEY ([OwnerId]) REFERENCES [Users] ([Id]) ON DELETE CASCADE
+);
+2025-04-03 23:26:59.335 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Discussions] (
+    [Id] uniqueidentifier NOT NULL,
+    [Title] nvarchar(max) NOT NULL,
+    [Description] nvarchar(max) NOT NULL,
+    [Photos] nvarchar(max) NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    [UpdatedAt] datetime2 NULL,
+    [EventId] uniqueidentifier NOT NULL,
+    [UserId] uniqueidentifier NOT NULL,
+    [UserId1] uniqueidentifier NULL,
+    CONSTRAINT [PK_Discussions] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Discussions_Events_EventId] FOREIGN KEY ([EventId]) REFERENCES [Events] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_Discussions_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id]),
+    CONSTRAINT [FK_Discussions_Users_UserId1] FOREIGN KEY ([UserId1]) REFERENCES [Users] ([Id])
+);
+2025-04-03 23:26:59.338 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Tickets] (
+    [Id] uniqueidentifier NOT NULL,
+    [UserId] uniqueidentifier NOT NULL,
+    [EventId] uniqueidentifier NOT NULL,
+    [Status] int NOT NULL,
+    CONSTRAINT [PK_Tickets] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Tickets_Events_EventId] FOREIGN KEY ([EventId]) REFERENCES [Events] ([Id]),
+    CONSTRAINT [FK_Tickets_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id])
+);
+2025-04-03 23:26:59.379 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Payments] (
+    [Id] uniqueidentifier NOT NULL,
+    [CardInfo] nvarchar(max) NOT NULL,
+    [UserId] uniqueidentifier NOT NULL,
+    [Status] int NOT NULL,
+    [Amount] decimal(18,2) NOT NULL,
+    [TicketId] uniqueidentifier NOT NULL,
+    [PaymentDate] datetime2 NOT NULL,
+    CONSTRAINT [PK_Payments] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Payments_Tickets_TicketId] FOREIGN KEY ([TicketId]) REFERENCES [Tickets] ([Id]),
+    CONSTRAINT [FK_Payments_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id])
+);
+2025-04-03 23:26:59.380 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Discussions_EventId] ON [Discussions] ([EventId]);
+2025-04-03 23:26:59.382 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Discussions_UserId] ON [Discussions] ([UserId]);
+2025-04-03 23:26:59.383 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Discussions_UserId1] ON [Discussions] ([UserId1]);
+2025-04-03 23:26:59.384 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Events_CategoryId] ON [Events] ([CategoryId]);
+2025-04-03 23:26:59.385 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Events_OwnerId] ON [Events] ([OwnerId]);
+2025-04-03 23:26:59.385 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Payments_TicketId] ON [Payments] ([TicketId]);
+2025-04-03 23:26:59.386 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Payments_UserId] ON [Payments] ([UserId]);
+2025-04-03 23:26:59.387 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Tickets_EventId] ON [Tickets] ([EventId]);
+2025-04-03 23:26:59.388 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Tickets_UserId] ON [Tickets] ([UserId]);
+2025-04-03 23:26:59.389 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20250403162646_dbinit', N'9.0.3');
+2025-04-03 23:26:59.390 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+SELECT @result
+2025-04-03 23:28:22.433 +07:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-04-03 23:28:22.469 +07:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-04-03 23:28:22.481 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result
+2025-04-03 23:28:22.523 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+2025-04-03 23:28:22.533 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-04-03 23:28:22.534 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-04-03 23:28:22.543 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-04-03 23:28:22.553 +07:00 [INF] Applying migration '20250403162813_dbupdate'.
+2025-04-03 23:28:22.569 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Discussions] DROP CONSTRAINT [FK_Discussions_Users_UserId1];
+2025-04-03 23:28:22.571 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DROP INDEX [IX_Discussions_UserId1] ON [Discussions];
+2025-04-03 23:28:22.582 +07:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var sysname;
+SELECT @var = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Discussions]') AND [c].[name] = N'UserId1');
+IF @var IS NOT NULL EXEC(N'ALTER TABLE [Discussions] DROP CONSTRAINT [' + @var + '];');
+ALTER TABLE [Discussions] DROP COLUMN [UserId1];
+2025-04-03 23:28:22.584 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20250403162813_dbupdate', N'9.0.3');
+2025-04-03 23:28:22.586 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+SELECT @result
+2025-04-03 23:31:53.456 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/swagger/index.html - null null
+2025-04-03 23:31:53.595 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-03 23:31:53.613 +07:00 [INF] Hosting environment: Development
+2025-04-03 23:31:53.613 +07:00 [INF] Content root path: D:\Code\Event-Management-System\ems_backend
+2025-04-03 23:31:53.836 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2025-04-03 23:31:53.836 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-03 23:31:53.837 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/swagger/index.html - 200 null text/html;charset=utf-8 391.7638ms
+2025-04-03 23:31:53.855 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 13774 application/javascript; charset=utf-8 8.4398ms
+2025-04-03 23:31:53.895 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 59.0205ms
+2025-04-03 23:31:53.979 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/swagger/v1/swagger.json - null null
+2025-04-03 23:31:54.007 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 27.5998ms
+2025-04-03 23:31:57.491 +07:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:44338/api/auth/signup - null null
+2025-04-03 23:31:57.500 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:31:57.503 +07:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:44338/api/auth/signup - 204 null null 12.3923ms
+2025-04-03 23:31:57.505 +07:00 [INF] Request starting HTTP/2 POST https://localhost:44338/api/auth/signup - application/json 147
+2025-04-03 23:31:57.508 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:31:57.514 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.AuthController.Signup (ems_backend)'
+2025-04-03 23:31:57.544 +07:00 [INF] Route matched with {action = "Signup", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Signup(ems_backend.Services.SignupRequest) on controller ems_backend.Controllers.AuthController (ems_backend).
+2025-04-03 23:31:58.958 +07:00 [INF] Executed DbCommand (54ms) [Parameters=[@__newUserRequest_Email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Email] = @__newUserRequest_Email_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-04-03 23:31:59.245 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Id], [Dob], [Email], [FirstName], [LastName], [Password], [Phone])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2025-04-03 23:31:59.259 +07:00 [INF] Executing OkObjectResult, writing value of type 'ems_backend.Models.User'.
+2025-04-03 23:31:59.282 +07:00 [INF] Executed action ems_backend.Controllers.AuthController.Signup (ems_backend) in 1735.4401ms
+2025-04-03 23:31:59.283 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.AuthController.Signup (ems_backend)'
+2025-04-03 23:31:59.290 +07:00 [INF] Request finished HTTP/2 POST https://localhost:44338/api/auth/signup - 200 null application/json; charset=utf-8 1784.8861ms
+2025-04-03 23:32:03.495 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/api/categories - null null
+2025-04-03 23:32:03.496 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:32:03.497 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.EventCategoryController.GetAllCategories (ems_backend)'
+2025-04-03 23:32:03.505 +07:00 [INF] Route matched with {action = "GetAllCategories", controller = "EventCategory"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllCategories() on controller ems_backend.Controllers.EventCategoryController (ems_backend).
+2025-04-03 23:32:03.625 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id], [e].[Name]
+FROM [EventCategories] AS [e]
+2025-04-03 23:32:03.640 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[ems_backend.Services.EventCategoryDTO, ems_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-03 23:32:03.645 +07:00 [INF] Executed action ems_backend.Controllers.EventCategoryController.GetAllCategories (ems_backend) in 139.0624ms
+2025-04-03 23:32:03.645 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.EventCategoryController.GetAllCategories (ems_backend)'
+2025-04-03 23:32:03.646 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/api/categories - 200 null application/json; charset=utf-8 151.2443ms
+2025-04-03 23:32:03.654 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/api/events/filter?minPrice=0&maxPrice=1000000&AvailableOnly=false - null null
+2025-04-03 23:32:03.655 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:32:03.656 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.EventController.GetEventsFilter (ems_backend)'
+2025-04-03 23:32:03.669 +07:00 [INF] Route matched with {action = "GetEventsFilter", controller = "Event"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetEventsFilter(System.Nullable`1[System.Decimal], System.Nullable`1[System.Decimal], System.Nullable`1[System.DateTime], System.Nullable`1[System.DateTime], System.Nullable`1[System.Boolean], System.Nullable`1[System.Guid], System.String) on controller ems_backend.Controllers.EventController (ems_backend).
+2025-04-03 23:32:04.096 +07:00 [INF] Executed DbCommand (12ms) [Parameters=[@__minPrice_Value_0='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @__maxPrice_Value_1='?' (Precision = 18) (Scale = 2) (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id], [e].[Name], [e].[Description], [e].[StartDate], [e].[EndDate], [e].[TicketPrice], [e].[TicketsLeft], [e].[OwnerId], [u].[FirstName] AS [OwnerFirstName], [u].[LastName] AS [OwnerLastName], [e].[Location], [e].[CategoryId], [e0].[Name] AS [CategoryName], (
+    SELECT COUNT(*)
+    FROM [Tickets] AS [t]
+    WHERE [e].[Id] = [t].[EventId]) AS [TicketCount], [e].[IsCanceled], CASE
+    WHEN [e].[IsCanceled] = CAST(0 AS bit) AND [e].[EndDate] > GETUTCDATE() AND [e].[TicketsLeft] > 0 THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END AS [RegisterAvaliable]
+FROM [Events] AS [e]
+INNER JOIN [Users] AS [u] ON [e].[OwnerId] = [u].[Id]
+INNER JOIN [EventCategories] AS [e0] ON [e].[CategoryId] = [e0].[Id]
+WHERE [e].[TicketPrice] >= @__minPrice_Value_0 AND [e].[TicketPrice] <= @__maxPrice_Value_1
+2025-04-03 23:32:04.099 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[ems_backend.Services.EventDTO, ems_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-03 23:32:04.104 +07:00 [INF] Executed action ems_backend.Controllers.EventController.GetEventsFilter (ems_backend) in 434.0573ms
+2025-04-03 23:32:04.104 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.EventController.GetEventsFilter (ems_backend)'
+2025-04-03 23:32:04.105 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/api/events/filter?minPrice=0&maxPrice=1000000&AvailableOnly=false - 200 null application/json; charset=utf-8 450.7506ms
+2025-04-03 23:32:04.961 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/api/events/owner/a8511a3a-49d5-459a-bce9-1040026f17b1 - null null
+2025-04-03 23:32:04.965 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/api/categories - null null
+2025-04-03 23:32:04.966 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:32:04.966 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.EventCategoryController.GetAllCategories (ems_backend)'
+2025-04-03 23:32:04.966 +07:00 [INF] Route matched with {action = "GetAllCategories", controller = "EventCategory"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllCategories() on controller ems_backend.Controllers.EventCategoryController (ems_backend).
+2025-04-03 23:32:04.967 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:32:04.967 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.EventController.GetEventsByOwnerId (ems_backend)'
+2025-04-03 23:32:04.974 +07:00 [INF] Route matched with {action = "GetEventsByOwnerId", controller = "Event"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetEventsByOwnerId(System.Guid) on controller ems_backend.Controllers.EventController (ems_backend).
+2025-04-03 23:32:04.991 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id], [e].[Name]
+FROM [EventCategories] AS [e]
+2025-04-03 23:32:04.993 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[ems_backend.Services.EventCategoryDTO, ems_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-03 23:32:04.995 +07:00 [INF] Executed action ems_backend.Controllers.EventCategoryController.GetAllCategories (ems_backend) in 28.2185ms
+2025-04-03 23:32:04.995 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.EventCategoryController.GetAllCategories (ems_backend)'
+2025-04-03 23:32:04.996 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/api/categories - 200 null application/json; charset=utf-8 31.0372ms
+2025-04-03 23:32:05.024 +07:00 [INF] Executed DbCommand (17ms) [Parameters=[@__ownerId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id], [e].[Name], [e].[Description], [e].[StartDate], [e].[EndDate], [e].[TicketPrice], [e].[TicketsLeft], [e].[OwnerId], [u].[FirstName] AS [OwnerFirstName], [u].[LastName] AS [OwnerLastName], [e].[Location], [e].[CategoryId], [e0].[Name] AS [CategoryName], (
+    SELECT COUNT(*)
+    FROM [Tickets] AS [t]
+    WHERE [e].[Id] = [t].[EventId]) AS [TicketCount], [e].[IsCanceled], CASE
+    WHEN [e].[IsCanceled] = CAST(0 AS bit) AND [e].[EndDate] > GETUTCDATE() AND [e].[TicketsLeft] > 0 THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END AS [RegisterAvaliable]
+FROM [Events] AS [e]
+INNER JOIN [Users] AS [u] ON [e].[OwnerId] = [u].[Id]
+INNER JOIN [EventCategories] AS [e0] ON [e].[CategoryId] = [e0].[Id]
+WHERE [e].[OwnerId] = @__ownerId_0
+2025-04-03 23:32:05.027 +07:00 [INF] Executing NotFoundObjectResult, writing value of type '<>f__AnonymousType1`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-04-03 23:32:05.036 +07:00 [INF] Executed action ems_backend.Controllers.EventController.GetEventsByOwnerId (ems_backend) in 61.1908ms
+2025-04-03 23:32:05.036 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.EventController.GetEventsByOwnerId (ems_backend)'
+2025-04-03 23:32:05.036 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/api/events/owner/a8511a3a-49d5-459a-bce9-1040026f17b1 - 404 null application/json; charset=utf-8 76.4799ms
+2025-04-03 23:32:51.665 +07:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:44338/api/events - null null
+2025-04-03 23:32:51.665 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:32:51.666 +07:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:44338/api/events - 204 null null 1.2995ms
+2025-04-03 23:32:51.668 +07:00 [INF] Request starting HTTP/2 POST https://localhost:44338/api/events - application/json 734
+2025-04-03 23:32:51.668 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:32:51.668 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.EventController.CreateEvent (ems_backend)'
+2025-04-03 23:32:51.671 +07:00 [INF] Route matched with {action = "CreateEvent", controller = "Event"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateEvent(ems_backend.Services.EventRequest) on controller ems_backend.Controllers.EventController (ems_backend).
+2025-04-03 23:32:51.798 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Guid), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Boolean), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (DbType = Guid), @p8='?' (DbType = DateTime2), @p9='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p10='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Events] ([Id], [CategoryId], [Description], [EndDate], [IsCanceled], [Location], [Name], [OwnerId], [StartDate], [TicketPrice], [TicketsLeft])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2025-04-03 23:32:51.803 +07:00 [INF] Executing CreatedAtActionResult, writing value of type 'ems_backend.Models.Event'.
+2025-04-03 23:32:51.818 +07:00 [INF] Executed action ems_backend.Controllers.EventController.CreateEvent (ems_backend) in 146.6778ms
+2025-04-03 23:32:51.818 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.EventController.CreateEvent (ems_backend)'
+2025-04-03 23:32:51.818 +07:00 [INF] Request finished HTTP/2 POST https://localhost:44338/api/events - 201 null application/json; charset=utf-8 150.4713ms
+2025-04-03 23:32:51.821 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/api/events/owner/a8511a3a-49d5-459a-bce9-1040026f17b1 - null null
+2025-04-03 23:32:51.821 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:32:51.821 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.EventController.GetEventsByOwnerId (ems_backend)'
+2025-04-03 23:32:51.821 +07:00 [INF] Route matched with {action = "GetEventsByOwnerId", controller = "Event"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetEventsByOwnerId(System.Guid) on controller ems_backend.Controllers.EventController (ems_backend).
+2025-04-03 23:32:51.833 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[@__ownerId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id], [e].[Name], [e].[Description], [e].[StartDate], [e].[EndDate], [e].[TicketPrice], [e].[TicketsLeft], [e].[OwnerId], [u].[FirstName] AS [OwnerFirstName], [u].[LastName] AS [OwnerLastName], [e].[Location], [e].[CategoryId], [e0].[Name] AS [CategoryName], (
+    SELECT COUNT(*)
+    FROM [Tickets] AS [t]
+    WHERE [e].[Id] = [t].[EventId]) AS [TicketCount], [e].[IsCanceled], CASE
+    WHEN [e].[IsCanceled] = CAST(0 AS bit) AND [e].[EndDate] > GETUTCDATE() AND [e].[TicketsLeft] > 0 THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END AS [RegisterAvaliable]
+FROM [Events] AS [e]
+INNER JOIN [Users] AS [u] ON [e].[OwnerId] = [u].[Id]
+INNER JOIN [EventCategories] AS [e0] ON [e].[CategoryId] = [e0].[Id]
+WHERE [e].[OwnerId] = @__ownerId_0
+2025-04-03 23:32:51.836 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[ems_backend.Services.EventDTO, ems_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-03 23:32:51.839 +07:00 [INF] Executed action ems_backend.Controllers.EventController.GetEventsByOwnerId (ems_backend) in 18.0141ms
+2025-04-03 23:32:51.840 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.EventController.GetEventsByOwnerId (ems_backend)'
+2025-04-03 23:32:51.840 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/api/events/owner/a8511a3a-49d5-459a-bce9-1040026f17b1 - 200 null application/json; charset=utf-8 19.2348ms
+2025-04-03 23:32:58.728 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/api/categories - null null
+2025-04-03 23:32:58.728 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:32:58.728 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.EventCategoryController.GetAllCategories (ems_backend)'
+2025-04-03 23:32:58.728 +07:00 [INF] Route matched with {action = "GetAllCategories", controller = "EventCategory"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllCategories() on controller ems_backend.Controllers.EventCategoryController (ems_backend).
+2025-04-03 23:32:58.740 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id], [e].[Name]
+FROM [EventCategories] AS [e]
+2025-04-03 23:32:58.743 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[ems_backend.Services.EventCategoryDTO, ems_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-03 23:32:58.744 +07:00 [INF] Executed action ems_backend.Controllers.EventCategoryController.GetAllCategories (ems_backend) in 15.6078ms
+2025-04-03 23:32:58.744 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.EventCategoryController.GetAllCategories (ems_backend)'
+2025-04-03 23:32:58.745 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/api/categories - 200 null application/json; charset=utf-8 17.0764ms
+2025-04-03 23:32:58.750 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/api/events/filter?minPrice=0&maxPrice=1000000&AvailableOnly=false - null null
+2025-04-03 23:32:58.750 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:32:58.750 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.EventController.GetEventsFilter (ems_backend)'
+2025-04-03 23:32:58.750 +07:00 [INF] Route matched with {action = "GetEventsFilter", controller = "Event"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetEventsFilter(System.Nullable`1[System.Decimal], System.Nullable`1[System.Decimal], System.Nullable`1[System.DateTime], System.Nullable`1[System.DateTime], System.Nullable`1[System.Boolean], System.Nullable`1[System.Guid], System.String) on controller ems_backend.Controllers.EventController (ems_backend).
+2025-04-03 23:32:58.762 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[@__minPrice_Value_0='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @__maxPrice_Value_1='?' (Precision = 18) (Scale = 2) (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id], [e].[Name], [e].[Description], [e].[StartDate], [e].[EndDate], [e].[TicketPrice], [e].[TicketsLeft], [e].[OwnerId], [u].[FirstName] AS [OwnerFirstName], [u].[LastName] AS [OwnerLastName], [e].[Location], [e].[CategoryId], [e0].[Name] AS [CategoryName], (
+    SELECT COUNT(*)
+    FROM [Tickets] AS [t]
+    WHERE [e].[Id] = [t].[EventId]) AS [TicketCount], [e].[IsCanceled], CASE
+    WHEN [e].[IsCanceled] = CAST(0 AS bit) AND [e].[EndDate] > GETUTCDATE() AND [e].[TicketsLeft] > 0 THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END AS [RegisterAvaliable]
+FROM [Events] AS [e]
+INNER JOIN [Users] AS [u] ON [e].[OwnerId] = [u].[Id]
+INNER JOIN [EventCategories] AS [e0] ON [e].[CategoryId] = [e0].[Id]
+WHERE [e].[TicketPrice] >= @__minPrice_Value_0 AND [e].[TicketPrice] <= @__maxPrice_Value_1
+2025-04-03 23:32:58.763 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[ems_backend.Services.EventDTO, ems_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-03 23:32:58.764 +07:00 [INF] Executed action ems_backend.Controllers.EventController.GetEventsFilter (ems_backend) in 13.1033ms
+2025-04-03 23:32:58.764 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.EventController.GetEventsFilter (ems_backend)'
+2025-04-03 23:32:58.764 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/api/events/filter?minPrice=0&maxPrice=1000000&AvailableOnly=false - 200 null application/json; charset=utf-8 14.8263ms
+2025-04-03 23:32:59.935 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/api/events/7e218c8d-26cc-4847-b66a-bd4279661042 - null null
+2025-04-03 23:32:59.935 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/api/discussions/by-events/7e218c8d-26cc-4847-b66a-bd4279661042 - null null
+2025-04-03 23:32:59.935 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:32:59.935 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:32:59.935 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.DiscussionController.GetDiscussionsByEventId (ems_backend)'
+2025-04-03 23:32:59.936 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.EventController.GetEvent (ems_backend)'
+2025-04-03 23:32:59.944 +07:00 [INF] Route matched with {action = "GetEvent", controller = "Event"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetEvent(System.Guid) on controller ems_backend.Controllers.EventController (ems_backend).
+2025-04-03 23:32:59.944 +07:00 [INF] Route matched with {action = "GetDiscussionsByEventId", controller = "Discussion"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetDiscussionsByEventId(System.Guid) on controller ems_backend.Controllers.DiscussionController (ems_backend).
+2025-04-03 23:32:59.965 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[Name], [e].[Description], [e].[StartDate], [e].[EndDate], [e].[TicketPrice], [e].[TicketsLeft], [e].[OwnerId], [u].[FirstName] AS [OwnerFirstName], [u].[LastName] AS [OwnerLastName], [e].[Location], [e].[CategoryId], [e0].[Name] AS [CategoryName], (
+    SELECT COUNT(*)
+    FROM [Tickets] AS [t]
+    WHERE [e].[Id] = [t].[EventId]) AS [TicketCount], [e].[IsCanceled], CASE
+    WHEN [e].[IsCanceled] = CAST(0 AS bit) AND [e].[EndDate] > GETUTCDATE() AND [e].[TicketsLeft] > 0 THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END AS [RegisterAvaliable]
+FROM [Events] AS [e]
+INNER JOIN [Users] AS [u] ON [e].[OwnerId] = [u].[Id]
+INNER JOIN [EventCategories] AS [e0] ON [e].[CategoryId] = [e0].[Id]
+WHERE [e].[Id] = @__id_0
+2025-04-03 23:32:59.967 +07:00 [INF] Executing OkObjectResult, writing value of type 'ems_backend.Services.EventDTO'.
+2025-04-03 23:32:59.969 +07:00 [INF] Executed action ems_backend.Controllers.EventController.GetEvent (ems_backend) in 24.3563ms
+2025-04-03 23:32:59.969 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.EventController.GetEvent (ems_backend)'
+2025-04-03 23:32:59.969 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/api/events/7e218c8d-26cc-4847-b66a-bd4279661042 - 200 null application/json; charset=utf-8 34.4879ms
+2025-04-03 23:32:59.973 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/api/tickets/user/a8511a3a-49d5-459a-bce9-1040026f17b1/event/7e218c8d-26cc-4847-b66a-bd4279661042 - null null
+2025-04-03 23:32:59.974 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:32:59.974 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.TicketController.GetTicketByUserAndEvent (ems_backend)'
+2025-04-03 23:32:59.978 +07:00 [INF] Route matched with {action = "GetTicketByUserAndEvent", controller = "Ticket"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetTicketByUserAndEvent(System.Guid, System.Guid) on controller ems_backend.Controllers.TicketController (ems_backend).
+2025-04-03 23:32:59.992 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__eventId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [d].[Id], [d].[CreatedAt], [d].[Description], [d].[EventId], [d].[Photos], [d].[Title], [d].[UpdatedAt], [d].[UserId]
+FROM [Discussions] AS [d]
+WHERE [d].[EventId] = @__eventId_0
+2025-04-03 23:32:59.994 +07:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2025-04-03 23:32:59.995 +07:00 [INF] Executed action ems_backend.Controllers.DiscussionController.GetDiscussionsByEventId (ems_backend) in 50.4096ms
+2025-04-03 23:32:59.995 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.DiscussionController.GetDiscussionsByEventId (ems_backend)'
+2025-04-03 23:32:59.995 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/api/discussions/by-events/7e218c8d-26cc-4847-b66a-bd4279661042 - 404 null application/json; charset=utf-8 60.464ms
+2025-04-03 23:33:00.020 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[@__userId_0='?' (DbType = Guid), @__eventId_1='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[EventId], [t].[Status], [t].[UserId], [e].[Id], [e].[CategoryId], [e].[Description], [e].[EndDate], [e].[IsCanceled], [e].[Location], [e].[Name], [e].[OwnerId], [e].[StartDate], [e].[TicketPrice], [e].[TicketsLeft], [u].[Id], [u].[Dob], [u].[Email], [u].[FirstName], [u].[LastName], [u].[Password], [u].[Phone]
+FROM [Tickets] AS [t]
+INNER JOIN [Events] AS [e] ON [t].[EventId] = [e].[Id]
+INNER JOIN [Users] AS [u] ON [t].[UserId] = [u].[Id]
+WHERE [t].[UserId] = @__userId_0 AND [t].[EventId] = @__eventId_1
+2025-04-03 23:33:00.021 +07:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2025-04-03 23:33:00.022 +07:00 [INF] Executed action ems_backend.Controllers.TicketController.GetTicketByUserAndEvent (ems_backend) in 43.884ms
+2025-04-03 23:33:00.022 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.TicketController.GetTicketByUserAndEvent (ems_backend)'
+2025-04-03 23:33:00.023 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/api/tickets/user/a8511a3a-49d5-459a-bce9-1040026f17b1/event/7e218c8d-26cc-4847-b66a-bd4279661042 - 404 null application/json; charset=utf-8 49.6292ms
+2025-04-03 23:33:21.666 +07:00 [INF] Request starting HTTP/2 POST https://localhost:44338/api/discussions - multipart/form-data; boundary=----WebKitFormBoundarywOqRNFG43KfwAuAd 47910
+2025-04-03 23:33:21.666 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/api/discussions/by-events/7e218c8d-26cc-4847-b66a-bd4279661042 - null null
+2025-04-03 23:33:21.666 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:33:21.666 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:33:21.666 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.DiscussionController.GetDiscussionsByEventId (ems_backend)'
+2025-04-03 23:33:21.666 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.DiscussionController.CreateDiscussion (ems_backend)'
+2025-04-03 23:33:21.666 +07:00 [INF] Route matched with {action = "GetDiscussionsByEventId", controller = "Discussion"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetDiscussionsByEventId(System.Guid) on controller ems_backend.Controllers.DiscussionController (ems_backend).
+2025-04-03 23:33:21.675 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[@__eventId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [d].[Id], [d].[CreatedAt], [d].[Description], [d].[EventId], [d].[Photos], [d].[Title], [d].[UpdatedAt], [d].[UserId]
+FROM [Discussions] AS [d]
+WHERE [d].[EventId] = @__eventId_0
+2025-04-03 23:33:21.677 +07:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2025-04-03 23:33:21.678 +07:00 [INF] Executed action ems_backend.Controllers.DiscussionController.GetDiscussionsByEventId (ems_backend) in 11.1749ms
+2025-04-03 23:33:21.678 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.DiscussionController.GetDiscussionsByEventId (ems_backend)'
+2025-04-03 23:33:21.679 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/api/discussions/by-events/7e218c8d-26cc-4847-b66a-bd4279661042 - 404 null application/json; charset=utf-8 12.804ms
+2025-04-03 23:33:21.683 +07:00 [INF] Route matched with {action = "CreateDiscussion", controller = "Discussion"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateDiscussion(NewDiscussionDto) on controller ems_backend.Controllers.DiscussionController (ems_backend).
+2025-04-03 23:33:21.731 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[CategoryId], [e].[Description], [e].[EndDate], [e].[IsCanceled], [e].[Location], [e].[Name], [e].[OwnerId], [e].[StartDate], [e].[TicketPrice], [e].[TicketsLeft]
+FROM [Events] AS [e]
+WHERE [e].[Id] = @__p_0
+2025-04-03 23:33:21.751 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Dob], [u].[Email], [u].[FirstName], [u].[LastName], [u].[Password], [u].[Phone]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2025-04-03 23:33:26.990 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (Size = 4000), @p3='?' (DbType = Guid), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (DbType = DateTime2), @p7='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Discussions] ([Id], [CreatedAt], [Description], [EventId], [Photos], [Title], [UpdatedAt], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2025-04-03 23:33:26.991 +07:00 [INF] New discussion added: "d9e279b1-5cca-4bac-ad2b-3b000705e3c3" for EventId "7e218c8d-26cc-4847-b66a-bd4279661042" by UserId "a8511a3a-49d5-459a-bce9-1040026f17b1"
+2025-04-03 23:33:26.992 +07:00 [INF] Executing CreatedAtActionResult, writing value of type 'DiscussionService+DiscussionViewDto'.
+2025-04-03 23:33:26.995 +07:00 [INF] Executed action ems_backend.Controllers.DiscussionController.CreateDiscussion (ems_backend) in 5311.8572ms
+2025-04-03 23:33:26.995 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.DiscussionController.CreateDiscussion (ems_backend)'
+2025-04-03 23:33:26.996 +07:00 [INF] Request finished HTTP/2 POST https://localhost:44338/api/discussions - 201 null application/json; charset=utf-8 5330.3452ms
+2025-04-03 23:33:51.211 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/api/events/7e218c8d-26cc-4847-b66a-bd4279661042 - null null
+2025-04-03 23:33:51.211 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/api/discussions/by-events/7e218c8d-26cc-4847-b66a-bd4279661042 - null null
+2025-04-03 23:33:51.216 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:33:51.216 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:33:51.216 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.DiscussionController.GetDiscussionsByEventId (ems_backend)'
+2025-04-03 23:33:51.216 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.EventController.GetEvent (ems_backend)'
+2025-04-03 23:33:51.216 +07:00 [INF] Route matched with {action = "GetDiscussionsByEventId", controller = "Discussion"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetDiscussionsByEventId(System.Guid) on controller ems_backend.Controllers.DiscussionController (ems_backend).
+2025-04-03 23:33:51.216 +07:00 [INF] Route matched with {action = "GetEvent", controller = "Event"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetEvent(System.Guid) on controller ems_backend.Controllers.EventController (ems_backend).
+2025-04-03 23:33:51.229 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[@__eventId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [d].[Id], [d].[CreatedAt], [d].[Description], [d].[EventId], [d].[Photos], [d].[Title], [d].[UpdatedAt], [d].[UserId]
+FROM [Discussions] AS [d]
+WHERE [d].[EventId] = @__eventId_0
+2025-04-03 23:33:51.233 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DiscussionService+DiscussionViewDto, ems_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-03 23:33:51.234 +07:00 [INF] Executed action ems_backend.Controllers.DiscussionController.GetDiscussionsByEventId (ems_backend) in 17.9009ms
+2025-04-03 23:33:51.235 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.DiscussionController.GetDiscussionsByEventId (ems_backend)'
+2025-04-03 23:33:51.235 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/api/discussions/by-events/7e218c8d-26cc-4847-b66a-bd4279661042 - 200 null application/json; charset=utf-8 23.7287ms
+2025-04-03 23:33:51.246 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[Name], [e].[Description], [e].[StartDate], [e].[EndDate], [e].[TicketPrice], [e].[TicketsLeft], [e].[OwnerId], [u].[FirstName] AS [OwnerFirstName], [u].[LastName] AS [OwnerLastName], [e].[Location], [e].[CategoryId], [e0].[Name] AS [CategoryName], (
+    SELECT COUNT(*)
+    FROM [Tickets] AS [t]
+    WHERE [e].[Id] = [t].[EventId]) AS [TicketCount], [e].[IsCanceled], CASE
+    WHEN [e].[IsCanceled] = CAST(0 AS bit) AND [e].[EndDate] > GETUTCDATE() AND [e].[TicketsLeft] > 0 THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END AS [RegisterAvaliable]
+FROM [Events] AS [e]
+INNER JOIN [Users] AS [u] ON [e].[OwnerId] = [u].[Id]
+INNER JOIN [EventCategories] AS [e0] ON [e].[CategoryId] = [e0].[Id]
+WHERE [e].[Id] = @__id_0
+2025-04-03 23:33:51.247 +07:00 [INF] Executing OkObjectResult, writing value of type 'ems_backend.Services.EventDTO'.
+2025-04-03 23:33:51.248 +07:00 [INF] Executed action ems_backend.Controllers.EventController.GetEvent (ems_backend) in 31.4742ms
+2025-04-03 23:33:51.248 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.EventController.GetEvent (ems_backend)'
+2025-04-03 23:33:51.248 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/api/events/7e218c8d-26cc-4847-b66a-bd4279661042 - 200 null application/json; charset=utf-8 37.6929ms
+2025-04-03 23:33:51.574 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/api/tickets/user/a8511a3a-49d5-459a-bce9-1040026f17b1/event/7e218c8d-26cc-4847-b66a-bd4279661042 - null null
+2025-04-03 23:33:51.575 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:33:51.576 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.TicketController.GetTicketByUserAndEvent (ems_backend)'
+2025-04-03 23:33:51.576 +07:00 [INF] Route matched with {action = "GetTicketByUserAndEvent", controller = "Ticket"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetTicketByUserAndEvent(System.Guid, System.Guid) on controller ems_backend.Controllers.TicketController (ems_backend).
+2025-04-03 23:33:51.587 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[@__userId_0='?' (DbType = Guid), @__eventId_1='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[EventId], [t].[Status], [t].[UserId], [e].[Id], [e].[CategoryId], [e].[Description], [e].[EndDate], [e].[IsCanceled], [e].[Location], [e].[Name], [e].[OwnerId], [e].[StartDate], [e].[TicketPrice], [e].[TicketsLeft], [u].[Id], [u].[Dob], [u].[Email], [u].[FirstName], [u].[LastName], [u].[Password], [u].[Phone]
+FROM [Tickets] AS [t]
+INNER JOIN [Events] AS [e] ON [t].[EventId] = [e].[Id]
+INNER JOIN [Users] AS [u] ON [t].[UserId] = [u].[Id]
+WHERE [t].[UserId] = @__userId_0 AND [t].[EventId] = @__eventId_1
+2025-04-03 23:33:51.600 +07:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2025-04-03 23:33:51.602 +07:00 [INF] Executed action ems_backend.Controllers.TicketController.GetTicketByUserAndEvent (ems_backend) in 25.8928ms
+2025-04-03 23:33:51.602 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.TicketController.GetTicketByUserAndEvent (ems_backend)'
+2025-04-03 23:33:51.602 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/api/tickets/user/a8511a3a-49d5-459a-bce9-1040026f17b1/event/7e218c8d-26cc-4847-b66a-bd4279661042 - 404 null application/json; charset=utf-8 28.9191ms
+2025-04-03 23:36:25.326 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/api/events/7e218c8d-26cc-4847-b66a-bd4279661042 - null null
+2025-04-03 23:36:25.354 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:36:25.354 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.EventController.GetEvent (ems_backend)'
+2025-04-03 23:36:25.355 +07:00 [INF] Route matched with {action = "GetEvent", controller = "Event"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetEvent(System.Guid) on controller ems_backend.Controllers.EventController (ems_backend).
+2025-04-03 23:36:25.355 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/api/discussions/by-events/7e218c8d-26cc-4847-b66a-bd4279661042 - null null
+2025-04-03 23:36:25.356 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:36:25.356 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.DiscussionController.GetDiscussionsByEventId (ems_backend)'
+2025-04-03 23:36:25.358 +07:00 [INF] Route matched with {action = "GetDiscussionsByEventId", controller = "Discussion"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetDiscussionsByEventId(System.Guid) on controller ems_backend.Controllers.DiscussionController (ems_backend).
+2025-04-03 23:36:25.372 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[@__eventId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [d].[Id], [d].[CreatedAt], [d].[Description], [d].[EventId], [d].[Photos], [d].[Title], [d].[UpdatedAt], [d].[UserId]
+FROM [Discussions] AS [d]
+WHERE [d].[EventId] = @__eventId_0
+2025-04-03 23:36:25.375 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DiscussionService+DiscussionViewDto, ems_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-03 23:36:25.375 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[Name], [e].[Description], [e].[StartDate], [e].[EndDate], [e].[TicketPrice], [e].[TicketsLeft], [e].[OwnerId], [u].[FirstName] AS [OwnerFirstName], [u].[LastName] AS [OwnerLastName], [e].[Location], [e].[CategoryId], [e0].[Name] AS [CategoryName], (
+    SELECT COUNT(*)
+    FROM [Tickets] AS [t]
+    WHERE [e].[Id] = [t].[EventId]) AS [TicketCount], [e].[IsCanceled], CASE
+    WHEN [e].[IsCanceled] = CAST(0 AS bit) AND [e].[EndDate] > GETUTCDATE() AND [e].[TicketsLeft] > 0 THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END AS [RegisterAvaliable]
+FROM [Events] AS [e]
+INNER JOIN [Users] AS [u] ON [e].[OwnerId] = [u].[Id]
+INNER JOIN [EventCategories] AS [e0] ON [e].[CategoryId] = [e0].[Id]
+WHERE [e].[Id] = @__id_0
+2025-04-03 23:36:25.379 +07:00 [INF] Executed action ems_backend.Controllers.DiscussionController.GetDiscussionsByEventId (ems_backend) in 20.2075ms
+2025-04-03 23:36:25.379 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.DiscussionController.GetDiscussionsByEventId (ems_backend)'
+2025-04-03 23:36:25.388 +07:00 [INF] Executing OkObjectResult, writing value of type 'ems_backend.Services.EventDTO'.
+2025-04-03 23:36:25.389 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/api/discussions/by-events/7e218c8d-26cc-4847-b66a-bd4279661042 - 200 null application/json; charset=utf-8 34.1462ms
+2025-04-03 23:36:25.389 +07:00 [INF] Executed action ems_backend.Controllers.EventController.GetEvent (ems_backend) in 33.1981ms
+2025-04-03 23:36:25.389 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.EventController.GetEvent (ems_backend)'
+2025-04-03 23:36:25.389 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/api/events/7e218c8d-26cc-4847-b66a-bd4279661042 - 200 null application/json; charset=utf-8 63.33ms
+2025-04-03 23:36:25.412 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/api/tickets/user/a8511a3a-49d5-459a-bce9-1040026f17b1/event/7e218c8d-26cc-4847-b66a-bd4279661042 - null null
+2025-04-03 23:36:25.412 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:36:25.413 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.TicketController.GetTicketByUserAndEvent (ems_backend)'
+2025-04-03 23:36:25.413 +07:00 [INF] Route matched with {action = "GetTicketByUserAndEvent", controller = "Ticket"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetTicketByUserAndEvent(System.Guid, System.Guid) on controller ems_backend.Controllers.TicketController (ems_backend).
+2025-04-03 23:36:25.419 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Guid), @__eventId_1='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[EventId], [t].[Status], [t].[UserId], [e].[Id], [e].[CategoryId], [e].[Description], [e].[EndDate], [e].[IsCanceled], [e].[Location], [e].[Name], [e].[OwnerId], [e].[StartDate], [e].[TicketPrice], [e].[TicketsLeft], [u].[Id], [u].[Dob], [u].[Email], [u].[FirstName], [u].[LastName], [u].[Password], [u].[Phone]
+FROM [Tickets] AS [t]
+INNER JOIN [Events] AS [e] ON [t].[EventId] = [e].[Id]
+INNER JOIN [Users] AS [u] ON [t].[UserId] = [u].[Id]
+WHERE [t].[UserId] = @__userId_0 AND [t].[EventId] = @__eventId_1
+2025-04-03 23:36:25.420 +07:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2025-04-03 23:36:25.421 +07:00 [INF] Executed action ems_backend.Controllers.TicketController.GetTicketByUserAndEvent (ems_backend) in 8.3079ms
+2025-04-03 23:36:25.421 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.TicketController.GetTicketByUserAndEvent (ems_backend)'
+2025-04-03 23:36:25.422 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/api/tickets/user/a8511a3a-49d5-459a-bce9-1040026f17b1/event/7e218c8d-26cc-4847-b66a-bd4279661042 - 404 null application/json; charset=utf-8 9.2478ms
+2025-04-03 23:39:00.899 +07:00 [INF] Request starting HTTP/2 POST https://localhost:44338/api/discussions - multipart/form-data; boundary=----WebKitFormBoundaryNDBgrEXV6ruA0dU3 223623
+2025-04-03 23:39:00.899 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:39:00.899 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.DiscussionController.CreateDiscussion (ems_backend)'
+2025-04-03 23:39:00.899 +07:00 [INF] Route matched with {action = "CreateDiscussion", controller = "Discussion"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateDiscussion(NewDiscussionDto) on controller ems_backend.Controllers.DiscussionController (ems_backend).
+2025-04-03 23:39:00.901 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/api/discussions/by-events/7e218c8d-26cc-4847-b66a-bd4279661042 - null null
+2025-04-03 23:39:00.905 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:39:00.905 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.DiscussionController.GetDiscussionsByEventId (ems_backend)'
+2025-04-03 23:39:00.906 +07:00 [INF] Route matched with {action = "GetDiscussionsByEventId", controller = "Discussion"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetDiscussionsByEventId(System.Guid) on controller ems_backend.Controllers.DiscussionController (ems_backend).
+2025-04-03 23:39:00.922 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[@__eventId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [d].[Id], [d].[CreatedAt], [d].[Description], [d].[EventId], [d].[Photos], [d].[Title], [d].[UpdatedAt], [d].[UserId]
+FROM [Discussions] AS [d]
+WHERE [d].[EventId] = @__eventId_0
+2025-04-03 23:39:00.949 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DiscussionService+DiscussionViewDto, ems_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-03 23:39:00.978 +07:00 [INF] Executed action ems_backend.Controllers.DiscussionController.GetDiscussionsByEventId (ems_backend) in 72.1761ms
+2025-04-03 23:39:00.979 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.DiscussionController.GetDiscussionsByEventId (ems_backend)'
+2025-04-03 23:39:00.980 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/api/discussions/by-events/7e218c8d-26cc-4847-b66a-bd4279661042 - 200 null application/json; charset=utf-8 78.357ms
+2025-04-03 23:39:01.015 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[CategoryId], [e].[Description], [e].[EndDate], [e].[IsCanceled], [e].[Location], [e].[Name], [e].[OwnerId], [e].[StartDate], [e].[TicketPrice], [e].[TicketsLeft]
+FROM [Events] AS [e]
+WHERE [e].[Id] = @__p_0
+2025-04-03 23:39:01.017 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Dob], [u].[Email], [u].[FirstName], [u].[LastName], [u].[Password], [u].[Phone]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2025-04-03 23:39:05.386 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/api/discussions/by-events/7e218c8d-26cc-4847-b66a-bd4279661042 - null null
+2025-04-03 23:39:05.386 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/api/events/7e218c8d-26cc-4847-b66a-bd4279661042 - null null
+2025-04-03 23:39:05.387 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:39:05.387 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:39:05.387 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.EventController.GetEvent (ems_backend)'
+2025-04-03 23:39:05.387 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.DiscussionController.GetDiscussionsByEventId (ems_backend)'
+2025-04-03 23:39:05.387 +07:00 [INF] Route matched with {action = "GetEvent", controller = "Event"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetEvent(System.Guid) on controller ems_backend.Controllers.EventController (ems_backend).
+2025-04-03 23:39:05.387 +07:00 [INF] Route matched with {action = "GetDiscussionsByEventId", controller = "Discussion"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetDiscussionsByEventId(System.Guid) on controller ems_backend.Controllers.DiscussionController (ems_backend).
+2025-04-03 23:39:05.390 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__eventId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [d].[Id], [d].[CreatedAt], [d].[Description], [d].[EventId], [d].[Photos], [d].[Title], [d].[UpdatedAt], [d].[UserId]
+FROM [Discussions] AS [d]
+WHERE [d].[EventId] = @__eventId_0
+2025-04-03 23:39:05.391 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[Name], [e].[Description], [e].[StartDate], [e].[EndDate], [e].[TicketPrice], [e].[TicketsLeft], [e].[OwnerId], [u].[FirstName] AS [OwnerFirstName], [u].[LastName] AS [OwnerLastName], [e].[Location], [e].[CategoryId], [e0].[Name] AS [CategoryName], (
+    SELECT COUNT(*)
+    FROM [Tickets] AS [t]
+    WHERE [e].[Id] = [t].[EventId]) AS [TicketCount], [e].[IsCanceled], CASE
+    WHEN [e].[IsCanceled] = CAST(0 AS bit) AND [e].[EndDate] > GETUTCDATE() AND [e].[TicketsLeft] > 0 THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END AS [RegisterAvaliable]
+FROM [Events] AS [e]
+INNER JOIN [Users] AS [u] ON [e].[OwnerId] = [u].[Id]
+INNER JOIN [EventCategories] AS [e0] ON [e].[CategoryId] = [e0].[Id]
+WHERE [e].[Id] = @__id_0
+2025-04-03 23:39:05.395 +07:00 [INF] Executing OkObjectResult, writing value of type 'ems_backend.Services.EventDTO'.
+2025-04-03 23:39:05.396 +07:00 [INF] Executed action ems_backend.Controllers.EventController.GetEvent (ems_backend) in 9.2213ms
+2025-04-03 23:39:05.396 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.EventController.GetEvent (ems_backend)'
+2025-04-03 23:39:05.396 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/api/events/7e218c8d-26cc-4847-b66a-bd4279661042 - 200 null application/json; charset=utf-8 10.1485ms
+2025-04-03 23:39:05.397 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DiscussionService+DiscussionViewDto, ems_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-03 23:39:05.401 +07:00 [INF] Executed action ems_backend.Controllers.DiscussionController.GetDiscussionsByEventId (ems_backend) in 13.9429ms
+2025-04-03 23:39:05.401 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.DiscussionController.GetDiscussionsByEventId (ems_backend)'
+2025-04-03 23:39:05.401 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/api/discussions/by-events/7e218c8d-26cc-4847-b66a-bd4279661042 - 200 null application/json; charset=utf-8 15.1396ms
+2025-04-03 23:39:05.408 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/api/tickets/user/a8511a3a-49d5-459a-bce9-1040026f17b1/event/7e218c8d-26cc-4847-b66a-bd4279661042 - null null
+2025-04-03 23:39:05.408 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:39:05.408 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.TicketController.GetTicketByUserAndEvent (ems_backend)'
+2025-04-03 23:39:05.409 +07:00 [INF] Route matched with {action = "GetTicketByUserAndEvent", controller = "Ticket"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetTicketByUserAndEvent(System.Guid, System.Guid) on controller ems_backend.Controllers.TicketController (ems_backend).
+2025-04-03 23:39:05.412 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Guid), @__eventId_1='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[EventId], [t].[Status], [t].[UserId], [e].[Id], [e].[CategoryId], [e].[Description], [e].[EndDate], [e].[IsCanceled], [e].[Location], [e].[Name], [e].[OwnerId], [e].[StartDate], [e].[TicketPrice], [e].[TicketsLeft], [u].[Id], [u].[Dob], [u].[Email], [u].[FirstName], [u].[LastName], [u].[Password], [u].[Phone]
+FROM [Tickets] AS [t]
+INNER JOIN [Events] AS [e] ON [t].[EventId] = [e].[Id]
+INNER JOIN [Users] AS [u] ON [t].[UserId] = [u].[Id]
+WHERE [t].[UserId] = @__userId_0 AND [t].[EventId] = @__eventId_1
+2025-04-03 23:39:05.413 +07:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2025-04-03 23:39:05.416 +07:00 [INF] Executed action ems_backend.Controllers.TicketController.GetTicketByUserAndEvent (ems_backend) in 7.1032ms
+2025-04-03 23:39:05.416 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.TicketController.GetTicketByUserAndEvent (ems_backend)'
+2025-04-03 23:39:05.416 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/api/tickets/user/a8511a3a-49d5-459a-bce9-1040026f17b1/event/7e218c8d-26cc-4847-b66a-bd4279661042 - 404 null application/json; charset=utf-8 8.6925ms
+2025-04-03 23:39:08.227 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (Size = 4000), @p3='?' (DbType = Guid), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (DbType = DateTime2), @p7='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Discussions] ([Id], [CreatedAt], [Description], [EventId], [Photos], [Title], [UpdatedAt], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2025-04-03 23:39:08.228 +07:00 [INF] New discussion added: "5db4c139-c8c4-46aa-8ebc-b7c99a0fa3ce" for EventId "7e218c8d-26cc-4847-b66a-bd4279661042" by UserId "a8511a3a-49d5-459a-bce9-1040026f17b1"
+2025-04-03 23:39:08.228 +07:00 [INF] Executing CreatedAtActionResult, writing value of type 'DiscussionService+DiscussionViewDto'.
+2025-04-03 23:39:08.232 +07:00 [INF] Executed action ems_backend.Controllers.DiscussionController.CreateDiscussion (ems_backend) in 7332.2901ms
+2025-04-03 23:39:08.232 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.DiscussionController.CreateDiscussion (ems_backend)'
+2025-04-03 23:39:08.233 +07:00 [INF] Request finished HTTP/2 POST https://localhost:44338/api/discussions - 499 null application/json; charset=utf-8 7337.3796ms
+2025-04-03 23:39:21.534 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/api/events/7e218c8d-26cc-4847-b66a-bd4279661042 - null null
+2025-04-03 23:39:21.534 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:39:21.534 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.EventController.GetEvent (ems_backend)'
+2025-04-03 23:39:21.534 +07:00 [INF] Route matched with {action = "GetEvent", controller = "Event"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetEvent(System.Guid) on controller ems_backend.Controllers.EventController (ems_backend).
+2025-04-03 23:39:21.535 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/api/discussions/by-events/7e218c8d-26cc-4847-b66a-bd4279661042 - null null
+2025-04-03 23:39:21.535 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:39:21.535 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.DiscussionController.GetDiscussionsByEventId (ems_backend)'
+2025-04-03 23:39:21.535 +07:00 [INF] Route matched with {action = "GetDiscussionsByEventId", controller = "Discussion"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetDiscussionsByEventId(System.Guid) on controller ems_backend.Controllers.DiscussionController (ems_backend).
+2025-04-03 23:39:21.544 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[Name], [e].[Description], [e].[StartDate], [e].[EndDate], [e].[TicketPrice], [e].[TicketsLeft], [e].[OwnerId], [u].[FirstName] AS [OwnerFirstName], [u].[LastName] AS [OwnerLastName], [e].[Location], [e].[CategoryId], [e0].[Name] AS [CategoryName], (
+    SELECT COUNT(*)
+    FROM [Tickets] AS [t]
+    WHERE [e].[Id] = [t].[EventId]) AS [TicketCount], [e].[IsCanceled], CASE
+    WHEN [e].[IsCanceled] = CAST(0 AS bit) AND [e].[EndDate] > GETUTCDATE() AND [e].[TicketsLeft] > 0 THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END AS [RegisterAvaliable]
+FROM [Events] AS [e]
+INNER JOIN [Users] AS [u] ON [e].[OwnerId] = [u].[Id]
+INNER JOIN [EventCategories] AS [e0] ON [e].[CategoryId] = [e0].[Id]
+WHERE [e].[Id] = @__id_0
+2025-04-03 23:39:21.544 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[@__eventId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [d].[Id], [d].[CreatedAt], [d].[Description], [d].[EventId], [d].[Photos], [d].[Title], [d].[UpdatedAt], [d].[UserId]
+FROM [Discussions] AS [d]
+WHERE [d].[EventId] = @__eventId_0
+2025-04-03 23:39:21.545 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DiscussionService+DiscussionViewDto, ems_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-03 23:39:21.546 +07:00 [INF] Executing OkObjectResult, writing value of type 'ems_backend.Services.EventDTO'.
+2025-04-03 23:39:21.546 +07:00 [INF] Executed action ems_backend.Controllers.DiscussionController.GetDiscussionsByEventId (ems_backend) in 10.9169ms
+2025-04-03 23:39:21.546 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.DiscussionController.GetDiscussionsByEventId (ems_backend)'
+2025-04-03 23:39:21.546 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/api/discussions/by-events/7e218c8d-26cc-4847-b66a-bd4279661042 - 200 null application/json; charset=utf-8 11.9211ms
+2025-04-03 23:39:21.549 +07:00 [INF] Executed action ems_backend.Controllers.EventController.GetEvent (ems_backend) in 14.6092ms
+2025-04-03 23:39:21.549 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.EventController.GetEvent (ems_backend)'
+2025-04-03 23:39:21.549 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/api/events/7e218c8d-26cc-4847-b66a-bd4279661042 - 200 null application/json; charset=utf-8 15.9096ms
+2025-04-03 23:39:21.573 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/api/tickets/user/a8511a3a-49d5-459a-bce9-1040026f17b1/event/7e218c8d-26cc-4847-b66a-bd4279661042 - null null
+2025-04-03 23:39:21.573 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:39:21.573 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.TicketController.GetTicketByUserAndEvent (ems_backend)'
+2025-04-03 23:39:21.574 +07:00 [INF] Route matched with {action = "GetTicketByUserAndEvent", controller = "Ticket"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetTicketByUserAndEvent(System.Guid, System.Guid) on controller ems_backend.Controllers.TicketController (ems_backend).
+2025-04-03 23:39:21.577 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Guid), @__eventId_1='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[EventId], [t].[Status], [t].[UserId], [e].[Id], [e].[CategoryId], [e].[Description], [e].[EndDate], [e].[IsCanceled], [e].[Location], [e].[Name], [e].[OwnerId], [e].[StartDate], [e].[TicketPrice], [e].[TicketsLeft], [u].[Id], [u].[Dob], [u].[Email], [u].[FirstName], [u].[LastName], [u].[Password], [u].[Phone]
+FROM [Tickets] AS [t]
+INNER JOIN [Events] AS [e] ON [t].[EventId] = [e].[Id]
+INNER JOIN [Users] AS [u] ON [t].[UserId] = [u].[Id]
+WHERE [t].[UserId] = @__userId_0 AND [t].[EventId] = @__eventId_1
+2025-04-03 23:39:21.578 +07:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2025-04-03 23:39:21.578 +07:00 [INF] Executed action ems_backend.Controllers.TicketController.GetTicketByUserAndEvent (ems_backend) in 4.7035ms
+2025-04-03 23:39:21.578 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.TicketController.GetTicketByUserAndEvent (ems_backend)'
+2025-04-03 23:39:21.579 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/api/tickets/user/a8511a3a-49d5-459a-bce9-1040026f17b1/event/7e218c8d-26cc-4847-b66a-bd4279661042 - 404 null application/json; charset=utf-8 6.0084ms
+2025-04-03 23:49:26.894 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/api/events/7e218c8d-26cc-4847-b66a-bd4279661042 - null null
+2025-04-03 23:49:26.925 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:49:26.925 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.EventController.GetEvent (ems_backend)'
+2025-04-03 23:49:26.925 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/api/discussions/by-events/7e218c8d-26cc-4847-b66a-bd4279661042 - null null
+2025-04-03 23:49:26.926 +07:00 [INF] Route matched with {action = "GetEvent", controller = "Event"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetEvent(System.Guid) on controller ems_backend.Controllers.EventController (ems_backend).
+2025-04-03 23:49:26.927 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:49:26.930 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.DiscussionController.GetDiscussionsByEventId (ems_backend)'
+2025-04-03 23:49:26.930 +07:00 [INF] Route matched with {action = "GetDiscussionsByEventId", controller = "Discussion"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetDiscussionsByEventId(System.Guid) on controller ems_backend.Controllers.DiscussionController (ems_backend).
+2025-04-03 23:49:26.965 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__eventId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [d].[Id], [d].[CreatedAt], [d].[Description], [d].[EventId], [d].[Photos], [d].[Title], [d].[UpdatedAt], [d].[UserId]
+FROM [Discussions] AS [d]
+WHERE [d].[EventId] = @__eventId_0
+2025-04-03 23:49:26.966 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DiscussionService+DiscussionViewDto, ems_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-03 23:49:26.966 +07:00 [INF] Executed action ems_backend.Controllers.DiscussionController.GetDiscussionsByEventId (ems_backend) in 36.5679ms
+2025-04-03 23:49:26.966 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.DiscussionController.GetDiscussionsByEventId (ems_backend)'
+2025-04-03 23:49:26.967 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[Name], [e].[Description], [e].[StartDate], [e].[EndDate], [e].[TicketPrice], [e].[TicketsLeft], [e].[OwnerId], [u].[FirstName] AS [OwnerFirstName], [u].[LastName] AS [OwnerLastName], [e].[Location], [e].[CategoryId], [e0].[Name] AS [CategoryName], (
+    SELECT COUNT(*)
+    FROM [Tickets] AS [t]
+    WHERE [e].[Id] = [t].[EventId]) AS [TicketCount], [e].[IsCanceled], CASE
+    WHEN [e].[IsCanceled] = CAST(0 AS bit) AND [e].[EndDate] > GETUTCDATE() AND [e].[TicketsLeft] > 0 THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END AS [RegisterAvaliable]
+FROM [Events] AS [e]
+INNER JOIN [Users] AS [u] ON [e].[OwnerId] = [u].[Id]
+INNER JOIN [EventCategories] AS [e0] ON [e].[CategoryId] = [e0].[Id]
+WHERE [e].[Id] = @__id_0
+2025-04-03 23:49:26.967 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/api/discussions/by-events/7e218c8d-26cc-4847-b66a-bd4279661042 - 200 null application/json; charset=utf-8 41.5363ms
+2025-04-03 23:49:26.967 +07:00 [INF] Executing OkObjectResult, writing value of type 'ems_backend.Services.EventDTO'.
+2025-04-03 23:49:26.968 +07:00 [INF] Executed action ems_backend.Controllers.EventController.GetEvent (ems_backend) in 41.1018ms
+2025-04-03 23:49:26.968 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.EventController.GetEvent (ems_backend)'
+2025-04-03 23:49:26.968 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/api/events/7e218c8d-26cc-4847-b66a-bd4279661042 - 200 null application/json; charset=utf-8 75.1544ms
+2025-04-03 23:49:26.993 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/api/tickets/user/a8511a3a-49d5-459a-bce9-1040026f17b1/event/7e218c8d-26cc-4847-b66a-bd4279661042 - null null
+2025-04-03 23:49:26.993 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:49:26.993 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.TicketController.GetTicketByUserAndEvent (ems_backend)'
+2025-04-03 23:49:26.994 +07:00 [INF] Route matched with {action = "GetTicketByUserAndEvent", controller = "Ticket"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetTicketByUserAndEvent(System.Guid, System.Guid) on controller ems_backend.Controllers.TicketController (ems_backend).
+2025-04-03 23:49:26.999 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (DbType = Guid), @__eventId_1='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[EventId], [t].[Status], [t].[UserId], [e].[Id], [e].[CategoryId], [e].[Description], [e].[EndDate], [e].[IsCanceled], [e].[Location], [e].[Name], [e].[OwnerId], [e].[StartDate], [e].[TicketPrice], [e].[TicketsLeft], [u].[Id], [u].[Dob], [u].[Email], [u].[FirstName], [u].[LastName], [u].[Password], [u].[Phone]
+FROM [Tickets] AS [t]
+INNER JOIN [Events] AS [e] ON [t].[EventId] = [e].[Id]
+INNER JOIN [Users] AS [u] ON [t].[UserId] = [u].[Id]
+WHERE [t].[UserId] = @__userId_0 AND [t].[EventId] = @__eventId_1
+2025-04-03 23:49:27.000 +07:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2025-04-03 23:49:27.001 +07:00 [INF] Executed action ems_backend.Controllers.TicketController.GetTicketByUserAndEvent (ems_backend) in 7.1506ms
+2025-04-03 23:49:27.001 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.TicketController.GetTicketByUserAndEvent (ems_backend)'
+2025-04-03 23:49:27.001 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/api/tickets/user/a8511a3a-49d5-459a-bce9-1040026f17b1/event/7e218c8d-26cc-4847-b66a-bd4279661042 - 404 null application/json; charset=utf-8 8.2167ms
+2025-04-03 23:49:52.890 +07:00 [INF] Request starting HTTP/2 POST https://localhost:44338/api/discussions - multipart/form-data; boundary=----WebKitFormBoundary3YOq5R9vwOZldz6h 343053
+2025-04-03 23:49:52.893 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:49:52.894 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.DiscussionController.CreateDiscussion (ems_backend)'
+2025-04-03 23:49:52.897 +07:00 [INF] Route matched with {action = "CreateDiscussion", controller = "Discussion"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateDiscussion(NewDiscussionDto) on controller ems_backend.Controllers.DiscussionController (ems_backend).
+2025-04-03 23:49:52.932 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[CategoryId], [e].[Description], [e].[EndDate], [e].[IsCanceled], [e].[Location], [e].[Name], [e].[OwnerId], [e].[StartDate], [e].[TicketPrice], [e].[TicketsLeft]
+FROM [Events] AS [e]
+WHERE [e].[Id] = @__p_0
+2025-04-03 23:49:52.934 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Dob], [u].[Email], [u].[FirstName], [u].[LastName], [u].[Password], [u].[Phone]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2025-04-03 23:50:02.401 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (Size = 4000), @p3='?' (DbType = Guid), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (DbType = DateTime2), @p7='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Discussions] ([Id], [CreatedAt], [Description], [EventId], [Photos], [Title], [UpdatedAt], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2025-04-03 23:50:02.402 +07:00 [INF] New discussion added: "9f8aa62a-81ea-4933-a640-05f5357d127e" for EventId "7e218c8d-26cc-4847-b66a-bd4279661042" by UserId "a8511a3a-49d5-459a-bce9-1040026f17b1"
+2025-04-03 23:50:02.402 +07:00 [INF] Executing CreatedAtActionResult, writing value of type 'DiscussionService+DiscussionViewDto'.
+2025-04-03 23:50:02.402 +07:00 [INF] Executed action ems_backend.Controllers.DiscussionController.CreateDiscussion (ems_backend) in 9505.5429ms
+2025-04-03 23:50:02.403 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.DiscussionController.CreateDiscussion (ems_backend)'
+2025-04-03 23:50:02.403 +07:00 [INF] Request finished HTTP/2 POST https://localhost:44338/api/discussions - 201 null application/json; charset=utf-8 9514.5695ms
+2025-04-03 23:50:02.406 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/api/discussions/by-events/7e218c8d-26cc-4847-b66a-bd4279661042 - null null
+2025-04-03 23:50:02.407 +07:00 [INF] CORS policy execution successful.
+2025-04-03 23:50:02.407 +07:00 [INF] Executing endpoint 'ems_backend.Controllers.DiscussionController.GetDiscussionsByEventId (ems_backend)'
+2025-04-03 23:50:02.407 +07:00 [INF] Route matched with {action = "GetDiscussionsByEventId", controller = "Discussion"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetDiscussionsByEventId(System.Guid) on controller ems_backend.Controllers.DiscussionController (ems_backend).
+2025-04-03 23:50:02.409 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__eventId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [d].[Id], [d].[CreatedAt], [d].[Description], [d].[EventId], [d].[Photos], [d].[Title], [d].[UpdatedAt], [d].[UserId]
+FROM [Discussions] AS [d]
+WHERE [d].[EventId] = @__eventId_0
+2025-04-03 23:50:02.411 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DiscussionService+DiscussionViewDto, ems_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-03 23:50:02.411 +07:00 [INF] Executed action ems_backend.Controllers.DiscussionController.GetDiscussionsByEventId (ems_backend) in 4.2444ms
+2025-04-03 23:50:02.411 +07:00 [INF] Executed endpoint 'ems_backend.Controllers.DiscussionController.GetDiscussionsByEventId (ems_backend)'
+2025-04-03 23:50:02.411 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/api/discussions/by-events/7e218c8d-26cc-4847-b66a-bd4279661042 - 200 null application/json; charset=utf-8 4.9218ms

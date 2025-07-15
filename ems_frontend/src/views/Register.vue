@@ -5,17 +5,11 @@
       <v-card-text>
         <v-form v-model="valid" @submit.prevent="register">
           <v-text-field v-model="firstName" label="First Name" :rules="[rules.required]" required></v-text-field>
-
           <v-text-field v-model="lastName" label="Last Name" :rules="[rules.required]" required></v-text-field>
-
           <v-text-field v-model="dob" label="Date of Birth" type="date" :rules="[rules.required]" required></v-text-field>
-
           <v-text-field v-model="email" label="Email" type="email" :rules="[rules.required, rules.email]" required></v-text-field>
-
           <v-text-field v-model="phone" label="Phone" type="tel" :rules="[rules.required, rules.phone]" required></v-text-field>
-
           <v-text-field v-model="password" label="Password" type="password" :rules="[rules.required, rules.min]" required></v-text-field>
-
           <v-text-field v-model="confirmPassword" label="Confirm Password" type="password" :rules="[rules.required, rules.matchPassword]" required></v-text-field>
 
           <v-alert v-if="errorMessage" type="error" dense class="mb-3">
@@ -35,9 +29,12 @@
 <script setup>
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-import apiClient from "@/services/api"; // File chứa axios instance
+import { useStore } from "vuex"; // 
+import apiClient from "@/services/api";
 
 const router = useRouter();
+const store = useStore(); // 
+
 const firstName = ref('');
 const lastName = ref('');
 const dob = ref('');
@@ -73,8 +70,12 @@ const register = async () => {
       password: password.value,
     });
 
-    localStorage.setItem('user', JSON.stringify(response.data));
-    window.dispatchEvent(new Event("auth-changed"));
+    const user = response.data;
+
+    // Lưu user vào Vuex
+    store.commit("setUser", user);
+
+    // Điều hướng đến Dashboard sau khi đăng ký thành công
     router.push('/dashboard');
   } catch (error) {
     errorMessage.value = 'Signup failed. Try again.';

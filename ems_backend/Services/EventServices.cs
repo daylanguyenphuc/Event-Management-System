@@ -247,7 +247,7 @@ namespace ems_backend.Services
                 OwnerLastName = existingEvent.Owner.LastName,
                 Location = existingEvent.Location,
                 CategoryId = existingEvent.CategoryId,
-                CategoryName = existingEvent.Category.Name,
+                CategoryName = existingEvent.Category != null ? existingEvent.Category.Name : "Uncategorized",
                 TicketCount = existingEvent.Tickets.Count,
                 IsCanceled = existingEvent.IsCanceled,
                 RegisterAvaliable = !existingEvent.IsCanceled && existingEvent.EndDate > DateTime.UtcNow && existingEvent.TicketsLeft > 0

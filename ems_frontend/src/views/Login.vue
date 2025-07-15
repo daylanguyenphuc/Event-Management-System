@@ -38,7 +38,9 @@
   import { ref } from 'vue';
   import { useRouter } from 'vue-router';
   import apiClient from "@/services/api";
+  import { useStore } from 'vuex';
 
+  const store = useStore()
   const router = useRouter();
   const email = ref('');
   const password = ref('');
@@ -61,11 +63,8 @@
         password: password.value,
       });
 
-      // Lưu thông tin user vào localStorage
-      localStorage.setItem('user', JSON.stringify(response.data));
-
-      // Phát sự kiện đăng nhập
-      window.dispatchEvent(new Event("auth-changed"));
+      // Lưu user vào Vuex Store
+      store.commit("setUser", response.data);
 
       // Chuyển hướng đến dashboard
       router.push('/dashboard');

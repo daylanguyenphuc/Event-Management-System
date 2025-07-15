@@ -12,6 +12,7 @@ namespace ems_backend.Data
         public DbSet<EventCategory> EventCategories { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
         public DbSet<Payment> Payments { get; set; }
+        public DbSet<Discussion> Discussions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -42,6 +43,20 @@ namespace ems_backend.Data
                 .WithMany()
                 .HasForeignKey(p => p.TicketId)
                 .OnDelete(DeleteBehavior.NoAction);
+
+            // Discussion - Event (Configure the relationship)
+            modelBuilder.Entity<Discussion>()
+                .HasOne(d => d.Event)  // Each Discussion belongs to one Event
+                .WithMany(e => e.Discussions)  // An Event can have many Discussions
+                .HasForeignKey(d => d.EventId)  // Foreign key is EventId in Discussion
+                .OnDelete(DeleteBehavior.Cascade);  // Define how deletion works (Cascade or NoAction)
+
+            // Discussion - User (Configure the relationship)
+            modelBuilder.Entity<Discussion>()
+                .HasOne(d => d.User)
+                .WithMany()
+                .HasForeignKey(d => d.UserId)
+                .OnDelete(DeleteBehavior.NoAction);  // Keep discussions even if User is deleted
         }
     }
 }

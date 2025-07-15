@@ -22,6 +22,44 @@ namespace ems_backend.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("ems_backend.Models.Discussion", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("EventId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Photos")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EventId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Discussions");
+                });
+
             modelBuilder.Entity("ems_backend.Models.Event", b =>
                 {
                     b.Property<Guid>("Id")
@@ -177,6 +215,25 @@ namespace ems_backend.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("ems_backend.Models.Discussion", b =>
+                {
+                    b.HasOne("ems_backend.Models.Event", "Event")
+                        .WithMany("Discussions")
+                        .HasForeignKey("EventId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ems_backend.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Event");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("ems_backend.Models.Event", b =>
                 {
                     b.HasOne("ems_backend.Models.EventCategory", "Category")
@@ -236,6 +293,8 @@ namespace ems_backend.Migrations
 
             modelBuilder.Entity("ems_backend.Models.Event", b =>
                 {
+                    b.Navigation("Discussions");
+
                     b.Navigation("Tickets");
                 });
 

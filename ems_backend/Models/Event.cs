@@ -38,6 +38,7 @@ namespace ems_backend.Models
         public List<Ticket> Tickets { get; set; } = new();
         [Required]
         public bool IsCanceled { get; set; } = false;
+        public List<Discussion> Discussions { get; set; } = new();
 
     }
 

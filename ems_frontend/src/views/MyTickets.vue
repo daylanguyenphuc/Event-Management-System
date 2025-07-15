@@ -17,18 +17,24 @@
                 </template>
             </v-data-table>
 
-            <v-alert v-if="tickets.length === 0" type="info" class="mt-3">You have no tickets.</v-alert>
+            <CustomAlert v-if="tickets.length === 0" customText="You have no tickets. Why don't you just get one?"/>
         </v-card>
     </v-container>
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
+import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 import apiClient from "@/services/api";
+import CustomAlert from "@/components/CustomAlert.vue";
 
 const router = useRouter();
 const tickets = ref([]);
+
+//Curent User
+const store = useStore();
+const user = computed(() => store.getters.user);
 
 const headers = [
     { title: "Event", key: "eventName" },
@@ -40,10 +46,7 @@ const headers = [
 // Fetch Tickets
 const fetchTickets = async () => {
     try {
-        const user = JSON.parse(localStorage.getItem("user"));
-        if (!user) throw new Error("User not found");
-
-        const response = await apiClient.get(`/tickets/user/${user.id}`);
+        const response = await apiClient.get(`/tickets/user/${user.value.id}`);
         tickets.value = response.data;
     } catch (error) {
         console.error("Error fetching tickets:", error);

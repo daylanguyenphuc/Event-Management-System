@@ -14,18 +14,18 @@
                 <!-- Event Details Tab -->
                 <v-window-item>
                     <v-form>
-                        <v-text-field v-model="event.name" label="Event Name" :readonly="isReadOnly"></v-text-field>
-                        <v-textarea v-model="event.description" label="Event Description" :readonly="isReadOnly"></v-textarea>
-                        <v-text-field v-model="event.startDate" label="Start Time" :readonly="isReadOnly"></v-text-field>
-                        <v-text-field v-model="event.endDate" label="End Time" :readonly="isReadOnly"></v-text-field>
-                        <v-text-field v-model="event.ticketPrice" label="Ticket Price" :readonly="isReadOnly"></v-text-field>
-                        <v-text-field v-model="ticketSlots" label="Ticket Slots" :readonly="isReadOnly"></v-text-field>
-                        <v-text-field v-model="event.location" label="Location" :readonly="isReadOnly"></v-text-field>
+                        <v-text-field v-model="event.name" label="Event Name" required :readonly="isReadOnly"></v-text-field>
+                        <v-textarea v-model="event.description" label="Event Description" required :readonly="isReadOnly"></v-textarea>
+                        <v-text-field v-model="event.startDate" type="datetime-local" label="Start Time" required :readonly="isReadOnly"></v-text-field>
+                        <v-text-field v-model="event.endDate" type="datetime-local" label="End Time" required :readonly="isReadOnly"></v-text-field>
+                        <v-text-field v-model="event.ticketPrice" type="number" suffix="VND" label="Ticket Price" required :readonly="isReadOnly"></v-text-field>
+                        <v-text-field v-model="ticketSlots" type="number" label="Ticket Slots" required :readonly="isReadOnly"></v-text-field>
+                        <v-text-field v-model="event.location" label="Location" required :readonly="isReadOnly"></v-text-field>
                         <v-select
                             v-model="event.categoryId"
                             :items="categories"
                             item-value="id"
-                            item-text="name"
+                            item-title="name"
                             label="Category"
                             :readonly="isReadOnly"
                             required
@@ -42,17 +42,26 @@
 
                 <!-- Ticket Check-in Tab -->
                 <v-window-item>
-                    <v-data-table :headers="ticketHeaders" :items="tickets" class="mt-4">
+                    <v-data-table 
+                        :headers="ticketHeaders" 
+                        :items="tickets" 
+                        class="mt-4"
+                        no-data-text="No tickets available!"
+                    >
                         <template v-slot:item.status="{ item }">
                             <v-chip :color="item.status === 1 ? 'green' : item.status === 2 ? 'red' : 'grey'" dark>
                                 {{ getStatus(item.status) }}
                             </v-chip>
                         </template>
                         <template v-slot:item.actions="{ item }">
-                            <!-- Show actions only if event is not canceled and ticket status is "Not Redeemed" and current date > start date -->
-                            <v-btn v-if="!event.isCanceled && item.status === 0 && new Date() > new Date(event.startDate)" color="primary" size="small" @click="checkInTicket(item.id)">Check-in</v-btn>
+                            <v-btn v-if="!event.isCanceled && item.status === 0 && new Date() > new Date(event.startDate)" 
+                                color="primary" size="small" @click="checkInTicket(item.id)">
+                                Check-in
+                            </v-btn>
                         </template>
                     </v-data-table>
+
+                    <CustomAlert v-if="tickets.length === 0" customText="No tickets available! Waiting for others to register." />
                 </v-window-item>
             </v-window>
         </v-card>
@@ -69,12 +78,18 @@
             </v-card-actions>
         </v-card>
     </v-dialog>
+
+    <!-- noti -->
+    <v-snackbar v-model="snackbar.show" :color="snackbar.color" timeout="3000">
+        {{ snackbar.message }}
+    </v-snackbar>
 </template>
 
 <script setup>
 import { ref, computed, onMounted } from "vue"; // Added computed import
 import { useRouter, useRoute } from "vue-router";
 import apiClient from "@/services/api";
+import CustomAlert from "@/components/CustomAlert.vue";
 
 const route = useRoute();
 const router = useRouter();
@@ -84,6 +99,11 @@ const tickets = ref([]);
 const ticketSlots = ref(0);
 const categories = ref([]);
 const cancelDialog = ref(false); // To control the cancel confirmation dialog
+const snackbar = ref({
+    show: false,
+    message: "",
+    color: "",
+});
 
 // Fetch the event details using the ID from the route
 const fetchEventDetails = async () => {
@@ -150,10 +170,18 @@ const editEvent = async () => {
         const response = await apiClient.put(`/events/${route.params.id}`, updatedEvent);
         
         if (response.status === 200) {
-            window.alert("Event updated successfully!");
-            fetchEventDetails(); // Refresh the event data after update
+            snackbar.value = {
+                show: true,
+                message: "Event updated successfully!",
+                color: "green",
+            };
+            fetchEventDetails();
         } else {
-            window.alert("Failed to update event. Please try again.");
+            snackbar.value = {
+                show: true,
+                message: "Failed to update event. Please try again.",
+                color: "red",
+            };
         }
     } catch (error) {
         console.error("Error updating event:", error);

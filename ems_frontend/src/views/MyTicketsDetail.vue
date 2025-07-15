@@ -5,7 +5,7 @@
             <v-divider></v-divider>
             <v-card-text v-if="ticket">
                 <p><strong>Event:</strong> {{ ticket.eventName }}</p>
-                <p><strong>Date:</strong> {{ ticket.eventStart }} - {{ ticket.eventEnd }}</p>
+                <p><strong>Date:</strong> {{ formatDate(ticket.eventStart) }} - {{ formatDate(ticket.eventEnd) }}</p>
                 <p><strong>Location:</strong> {{ ticket.eventLocation }}</p>
                 <p><strong>Status:</strong> 
                     {{ ticket.status === 0 ? "Not Redeemed" : ticket.status === 1 ? "Redeemed" : "Refunded" }}
@@ -38,6 +38,11 @@ const fetchTicketDetails = async () => {
     } catch (error) {
         console.error("Error fetching ticket details:", error);
     }
+};
+
+// Format date
+const formatDate = (dateString) => {
+    return new Date(dateString).toLocaleString();
 };
 
 // Navigate back to My Tickets
